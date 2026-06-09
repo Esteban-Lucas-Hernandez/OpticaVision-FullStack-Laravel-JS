@@ -157,3 +157,16 @@ OpticaVision-FullStack-Laravel-JS/
 * **Control de Roles Integrado:** Acceso diferenciado por perfiles (Administrador, Vendedor y Cliente).
 * **Generación de Reportes:** Exportación de compras en formato Excel y descarga automatizada de recibos en formato PDF.
 * **Notificaciones Dinámicas:** Sistema ligero para notificar de inmediato a los compradores cuando sus transacciones han sido aceptadas o rechazadas por un vendedor.
+
+---
+
+## 📸 Capturas de Pantalla
+
+Aquí puedes ver la interfaz del proyecto en funcionamiento:
+
+### Vista de Inicio / Bienvenida
+![Vista de Inicio](public/images/screenshots/inicio.png)
+
+### Carrusel de Productos y Catálogo
+![Carrusel de Productos](public/images/screenshots/carrusel.png)
+
