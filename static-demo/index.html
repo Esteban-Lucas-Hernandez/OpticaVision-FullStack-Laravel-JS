@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Óptica Vision - DEMO</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Banner Demo -->
+    <div class="demo-banner">
+        🚧 Esto es una demostración estática del frontend. <a href="https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS" target="_blank">Clona el repositorio aquí</a> para ver el proyecto fullstack con Laravel completo. 🚧
+    </div>
+
+    <!-- NAV -->
+    <nav class="navbar with-banner">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-glasses"></i>
+            </div>
+            
+            <button class="hamburger" id="hamburger">☰</button>
+
+            <ul class="menu" id="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+            </ul>
+
+            <div class="top-right links">
+                <a href="#" class="demo-trigger">Log in</a>
+                <a href="#" class="demo-trigger">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- INICIO -->
+    <section id="inicio" class="with-banner">
+        <h1>Óptica Vision Perfecta</h1>
+        <p>
+            Especialistas en salud visual con más de 20 años de experiencia. 
+            Ofrecemos soluciones ópticas personalizadas con la más alta tecnología.
+        </p>
+    </section>
+
+    <main>
+        <!-- PRODUCTOS -->
+        <section id="productos" class="card-section">
+            <h2>Nuestros Productos</h2>
+            <div class="card-container">
+                <!-- Producto 1 -->
+                <div class="card">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_627542-MLA108311913496_032026-F.webp" alt="Gafas Arnette" />
+                    <h3>Gafas Arnette</h3>
+                    <p>Estilo urbano y moderno, diseñadas para ofrecer comodidad y resistencia.</p>
+                    <p style="color: var(--secondary-green); font-weight: bold;">$15.000</p>
+                    <button class="demo-trigger">Ver detalles</button>
+                </div>
+                <!-- Producto 2 -->
+                <div class="card">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_860418-MLA84534391406_052025-F.webp" alt="Gafas redondas" />
+                    <h3>Gafas Redondas Negras</h3>
+                    <p>Clásicas y sofisticadas, ideales para cualquier ocasión.</p>
+                    <p style="color: var(--secondary-green); font-weight: bold;">$30.000</p>
+                    <button class="demo-trigger">Ver detalles</button>
+                </div>
+                <!-- Producto 3 -->
+                <div class="card">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_666114-MCO105969288187_012026-F.webp" alt="Gafas Premium" />
+                    <h3>Gafas de Sol Premium</h3>
+                    <p>Estilo exclusivo con máxima protección y acabado de lujo.</p>
+                    <p style="color: var(--secondary-green); font-weight: bold;">$40.000</p>
+                    <button class="demo-trigger">Ver detalles</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- OFERTAS -->
+        <section id="ofertas" class="card-section offers-section">
+            <h2>Ofertas Especiales</h2>
+            <div class="card-container">
+                <!-- Oferta 1 -->
+                <div class="card">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_836257-MLA91326909758_092025-F.webp" alt="Gafas premium" />
+                    <h3>Gafas Premium</h3>
+                    <p>Elegancia atemporal y estilo versátil para cualquier look.</p>
+                    <p class="offer-price">¡Precio especial!</p>
+                    <p style="color: var(--secondary-green); font-weight: bold;">$40.000</p>
+                    <button class="demo-trigger">Aprovechar oferta</button>
+                </div>
+                 <!-- Oferta 2 -->
+                 <div class="card">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_632876-MLA99946790041_112025-F.webp" alt="Gafas modernas" />
+                    <h3>Gafas Modernas</h3>
+                    <p>Diseño contemporáneo que combina estilo y comodidad.</p>
+                    <p class="offer-price">¡Precio especial!</p>
+                    <p style="color: var(--secondary-green); font-weight: bold;">$80.000</p>
+                    <button class="demo-trigger">Aprovechar oferta</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section id="servicios" class="section-container">
+            <h2 class="section-title">Nuestros Servicios Profesionales</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Examen Visual</h3>
+                    <p>Evaluaciones profesionales con equipos de última generación.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-glasses"></i>
+                    <h3>Lentes Oftálmicos</h3>
+                    <p>Amplio catálogo de lentes con tratamientos antirreflejantes.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Reparaciones</h3>
+                    <p>Servicio técnico especializado en reparación y ajuste.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#productos">Productos</a>
+                <a href="#ofertas">Ofertas</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Óptica Vision. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DEMO -->
+    <div class="demo-overlay" id="demoModal">
+        <div class="demo-modal">
+            <div class="demo-icon">🧑‍💻</div>
+            <h2>¡Hola! Esto es una Demo Estática</h2>
+            <p>
+                Estás viendo la versión estática de mi proyecto desplegada en Render. 
+                Las funciones de <strong>Login, Registro, Base de Datos, Laravel, roles y panel de administración</strong> 
+                están en el proyecto completo.
+            </p>
+            <p style="font-size: 0.9rem;">
+                Para probar el sistema real y todas sus funcionalidades (PHP/Laravel), necesitas clonar el repositorio y ejecutarlo localmente.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS" target="_blank" class="btn-clone">
+                    <i class="fab fa-github"></i> Ir al Repositorio
+                </a>
+                <button class="btn-close-modal" id="closeModal">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica del modal
+        const modal = document.getElementById('demoModal');
+        const closeBtn = document.getElementById('closeModal');
+        const triggers = document.querySelectorAll('.demo-trigger');
+
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Menú hamburguesa
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

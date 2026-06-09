@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: optica-vision-demo
+    env: static
+    staticPublishPath: ./static-demo
+    buildCommand: ""
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
