@@ -164,9 +164,8 @@ OpticaVision-FullStack-Laravel-JS/
 
 Aquí puedes ver la interfaz del proyecto en funcionamiento:
 
-### Vista de Inicio / Bienvenida
-![Vista de Inicio](public/images/screenshots/inicio.png)
-
-### Carrusel de Productos y Catálogo
-![Carrusel de Productos](public/images/screenshots/carrusel.png)
+<p align="center">
+  <img src="public/images/screenshots/inicio.png" alt="Vista de Inicio" width="48%" />
+  <img src="public/images/screenshots/carrusel.png" alt="Carrusel de Productos" width="48%" />
+</p>
 
