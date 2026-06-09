@@ -41,21 +41,29 @@ nav {
 
 .nav-container {
     display: flex;
-    justify-content: center; /* centra horizontal */
-    align-items: center; /* centra vertical */
-    gap: 20px; /* 👈 espacio entre elementos */
+    justify-content: center;
+    /* centra horizontal */
+    align-items: center;
+    /* centra vertical */
+    gap: 20px;
+    /* 👈 espacio entre elementos */
     max-width: 1400px;
     margin: 0 auto;
     padding: 1rem 2rem;
 }
 
 .user-name {
-    font-style: italic; /* letra cursiva */
-    margin-top: 10px; /* ajusta el valor según necesites */
-    display: inline-block; /* para que el margin-top funcione mejor */
+    font-style: italic;
+    /* letra cursiva */
+    margin-top: 10px;
+    /* ajusta el valor según necesites */
+    display: inline-block;
+    /* para que el margin-top funcione mejor */
 }
+
 .fas.fa-glasses {
-    margin-right: 10px; /* ajusta el valor */
+    margin-right: 10px;
+    /* ajusta el valor */
 }
 
 .logo {
@@ -140,6 +148,7 @@ nav {
         0 10px 10px -5px rgba(14, 165, 233, 0.04);
     z-index: 1001;
 }
+
 #notificationBadge {
     position: absolute;
     top: 2px;
@@ -214,36 +223,24 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(
-            circle at 20% 80%,
+    background-image: radial-gradient(circle at 20% 80%,
             rgba(66, 153, 225, 0.3) 2px,
-            transparent 2px
-        ),
-        radial-gradient(
-            circle at 80% 20%,
+            transparent 2px),
+        radial-gradient(circle at 80% 20%,
             rgba(72, 187, 120, 0.3) 3px,
-            transparent 3px
-        ),
-        radial-gradient(
-            circle at 40% 40%,
+            transparent 3px),
+        radial-gradient(circle at 40% 40%,
             rgba(66, 153, 225, 0.2) 1px,
-            transparent 1px
-        ),
-        radial-gradient(
-            circle at 60% 90%,
+            transparent 1px),
+        radial-gradient(circle at 60% 90%,
             rgba(72, 187, 120, 0.2) 2px,
-            transparent 2px
-        ),
-        radial-gradient(
-            circle at 90% 60%,
+            transparent 2px),
+        radial-gradient(circle at 90% 60%,
             rgba(66, 153, 225, 0.3) 1.5px,
-            transparent 1.5px
-        ),
-        radial-gradient(
-            circle at 10% 30%,
+            transparent 1.5px),
+        radial-gradient(circle at 10% 30%,
             rgba(72, 187, 120, 0.3) 2.5px,
-            transparent 2.5px
-        );
+            transparent 2.5px);
     background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px,
         180px 180px, 220px 220px;
     animation: bubbleFloat 20s infinite linear;
@@ -258,31 +255,21 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(
-            circle at 30% 70%,
+    background-image: radial-gradient(circle at 30% 70%,
             rgba(66, 153, 225, 0.2) 1px,
-            transparent 1px
-        ),
-        radial-gradient(
-            circle at 70% 30%,
+            transparent 1px),
+        radial-gradient(circle at 70% 30%,
             rgba(72, 187, 120, 0.2) 2px,
-            transparent 2px
-        ),
-        radial-gradient(
-            circle at 50% 10%,
+            transparent 2px),
+        radial-gradient(circle at 50% 10%,
             rgba(66, 153, 225, 0.3) 1.5px,
-            transparent 1.5px
-        ),
-        radial-gradient(
-            circle at 15% 85%,
+            transparent 1.5px),
+        radial-gradient(circle at 15% 85%,
             rgba(72, 187, 120, 0.2) 2.5px,
-            transparent 2.5px
-        ),
-        radial-gradient(
-            circle at 85% 45%,
+            transparent 2.5px),
+        radial-gradient(circle at 85% 45%,
             rgba(66, 153, 225, 0.2) 1px,
-            transparent 1px
-        );
+            transparent 1px);
     background-size: 180px 180px, 240px 240px, 160px 160px, 200px 200px,
         280px 280px;
     animation: bubbleFloat 25s infinite linear reverse;
@@ -294,6 +281,7 @@ section {
     0% {
         transform: translateY(100vh) rotate(0deg);
     }
+
     100% {
         transform: translateY(-100vh) rotate(360deg);
     }
@@ -326,6 +314,7 @@ section {
         opacity: 0;
         transform: translateX(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -337,6 +326,7 @@ section {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -375,11 +365,9 @@ section {
 /* Estilos Base para Secciones con Tarjetas      */
 /* ============================================= */
 .card-section {
-    background: linear-gradient(
-        135deg,
-        var(--card-bg) 0%,
-        var(--light-bg) 100%
-    );
+    background: linear-gradient(135deg,
+            var(--card-bg) 0%,
+            var(--light-bg) 100%);
     border-radius: var(--base-border-radius);
     padding: 3rem;
     box-shadow: 0 4px 20px rgba(14, 165, 233, 0.08);
@@ -387,7 +375,8 @@ section {
     position: relative;
 
     /* ocupa casi toda la pantalla en móviles */
-    margin: 20px; /* arriba=0 | derecha=auto | abajo=2rem | izquierda=auto */
+    margin: 20px;
+    /* arriba=0 | derecha=auto | abajo=2rem | izquierda=auto */
 }
 
 /* Línea decorativa superior */
@@ -398,12 +387,10 @@ section {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(
-        90deg,
-        var(--primary-blue) 0%,
-        var(--secondary-green) 50%,
-        var(--primary-blue) 100%
-    );
+    background: linear-gradient(90deg,
+            var(--primary-blue) 0%,
+            var(--secondary-green) 50%,
+            var(--primary-blue) 100%);
 }
 
 .card-section h2 {
@@ -425,11 +412,9 @@ section {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(
-        90deg,
-        var(--primary-blue),
-        var(--secondary-green)
-    );
+    background: linear-gradient(90deg,
+            var(--primary-blue),
+            var(--secondary-green));
     border-radius: 2px;
 }
 
@@ -445,18 +430,17 @@ section {
 /* Estilos para las Tarjetas Individuales        */
 /* ============================================= */
 .card {
-    background: linear-gradient(
-        135deg,
-        var(--card-bg) 0%,
-        var(--card-bg-gradient) 100%
-    );
+    background: linear-gradient(135deg,
+            var(--card-bg) 0%,
+            var(--card-bg-gradient) 100%);
     border: 2px solid var(--light-border);
     border-radius: var(--base-border-radius);
     padding: 2rem;
     width: 300px;
     transition: all var(--transition-speed) ease;
     position: relative;
-    overflow: hidden; /* Mantenemos overflow aquí para la animación de la línea */
+    overflow: hidden;
+    /* Mantenemos overflow aquí para la animación de la línea */
     display: flex;
     flex-direction: column;
 }
@@ -469,11 +453,9 @@ section {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(
-        90deg,
-        var(--primary-blue),
-        var(--secondary-green)
-    );
+    background: linear-gradient(90deg,
+            var(--primary-blue),
+            var(--secondary-green));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform var(--transition-speed) ease;
@@ -501,14 +483,19 @@ section {
     font-size: 0.95rem;
     margin-bottom: 0.8rem;
     line-height: 1.6;
-    flex-grow: 1; /* Hace que el párrafo crezca para alinear los botones */
+    flex-grow: 1;
+    /* Hace que el párrafo crezca para alinear los botones */
 }
 
 .card img {
-    width: 100%; /* La imagen ocupará todo el ancho de la card */
-    height: 200px; /* Alto fijo */
-    object-fit: cover; /* Recorta la imagen manteniendo proporción */
-    border-radius: 10px; /* opcional, para esquinas redondeadas */
+    width: 100%;
+    /* La imagen ocupará todo el ancho de la card */
+    height: 200px;
+    /* Alto fijo */
+    object-fit: cover;
+    /* Recorta la imagen manteniendo proporción */
+    border-radius: 10px;
+    /* opcional, para esquinas redondeadas */
 }
 
 .card:hover img {
@@ -517,11 +504,9 @@ section {
 }
 
 .card button {
-    background: linear-gradient(
-        135deg,
-        var(--primary-blue) 0%,
-        var(--primary-blue-dark) 100%
-    );
+    background: linear-gradient(135deg,
+            var(--primary-blue) 0%,
+            var(--primary-blue-dark) 100%);
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -531,15 +516,14 @@ section {
     font-weight: 600;
     font-size: 0.9rem;
     width: 100%;
-    margin-top: auto; /* Empuja el botón al final de la tarjeta */
+    margin-top: auto;
+    /* Empuja el botón al final de la tarjeta */
 }
 
 .card button:hover {
-    background: linear-gradient(
-        135deg,
-        var(--primary-blue-dark) 0%,
-        var(--primary-blue-darker) 100%
-    );
+    background: linear-gradient(135deg,
+            var(--primary-blue-dark) 0%,
+            var(--primary-blue-darker) 100%);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
 }
@@ -575,7 +559,8 @@ section {
     display: inline-block;
     font-size: 0.85rem !important;
     border: 1px solid #dd5c5c;
-    width: fit-content; /* Se ajusta al contenido */
+    width: fit-content;
+    /* Se ajusta al contenido */
 }
 
 /* SECCIONES GENERALES */
@@ -951,6 +936,7 @@ footer {
     border-top: 1px solid #334155;
     padding-top: 2rem;
 }
+
 /* Ajustes para el carrusel de Swiper */
 
 /* Asegurarnos de que las tarjetas dentro del slide ocupen todo el alto */
@@ -961,26 +947,29 @@ footer {
 
 .swiper-slide .card {
     width: 100%;
-    margin: 10px; /* La tarjeta ocupa todo el espacio del slide */
+    margin: 10px;
+    /* La tarjeta ocupa todo el espacio del slide */
 }
 
 /* Dar espacio para la paginación y alinear los botones */
 .swiper {
-    padding-bottom: 50px; /* Espacio para los puntos de paginación */
+    padding-bottom: 50px;
+    /* Espacio para los puntos de paginación */
 }
 
 /* Personalizar el color de las flechas de navegación con tu paleta de colores */
 .swiper-button-next,
 .swiper-button-prev {
-    color: var(
-        --primary-blue
-    ); /* Usamos la variable de color que definimos antes */
+    color: var(--primary-blue);
+    /* Usamos la variable de color que definimos antes */
 }
 
 /* Cambiar el color del punto de paginación activo */
 .swiper-pagination-bullet-active {
-    background-color: var(--primary-blue); /* Usamos la variable de color */
+    background-color: var(--primary-blue);
+    /* Usamos la variable de color */
 }
+
 /* Ocultar menú en móviles */
 .hamburger {
     display: none;

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 /* ===== PALETA DE COLORES PROFESIONAL ÓPTICA ===== */
 :root {
     --primary-blue: #2e86ab;
@@ -32,16 +33,12 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(
-            circle at 25% 25%,
+    background-image: radial-gradient(circle at 25% 25%,
             rgba(56, 189, 248, 0.1) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            circle at 75% 75%,
+            transparent 50%),
+        radial-gradient(circle at 75% 75%,
             rgba(14, 165, 233, 0.1) 0%,
-            transparent 50%
-        );
+            transparent 50%);
     pointer-events: none;
     z-index: -1;
 }
@@ -80,9 +77,12 @@ body::before {
 }
 
 .product-gallery-main img {
-    width: 450px; /* Ancho fijo */
-    height: 450px; /* Alto fijo */
-    object-fit: contain; /* Mantiene proporciones sin deformar */
+    width: 450px;
+    /* Ancho fijo */
+    height: 450px;
+    /* Alto fijo */
+    object-fit: contain;
+    /* Mantiene proporciones sin deformar */
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(46, 134, 171, 0.12),
         0 0 0 1px rgba(135, 206, 235, 0.2);
@@ -175,11 +175,9 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-        45deg,
-        rgba(46, 134, 171, 0.1),
-        rgba(135, 206, 235, 0.1)
-    );
+    background: linear-gradient(45deg,
+            rgba(46, 134, 171, 0.1),
+            rgba(135, 206, 235, 0.1));
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -215,16 +213,14 @@ body::before {
     right: -30%;
     width: 80%;
     height: 80%;
-    background: radial-gradient(
-        circle,
-        rgba(135, 206, 235, 0.03),
-        transparent 70%
-    );
+    background: radial-gradient(circle,
+            rgba(135, 206, 235, 0.03),
+            transparent 70%);
     border-radius: 50%;
     z-index: 0;
 }
 
-.col-lg-6:last-child > * {
+.col-lg-6:last-child>* {
     position: relative;
     z-index: 1;
 }
@@ -255,11 +251,9 @@ body::before {
 
 /* Precio profesional */
 .lead {
-    background: linear-gradient(
-        135deg,
-        var(--accent-teal),
-        var(--primary-blue)
-    );
+    background: linear-gradient(135deg,
+            var(--accent-teal),
+            var(--primary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -278,11 +272,9 @@ body::before {
     transform: translateY(-50%);
     width: 4px;
     height: 60%;
-    background: linear-gradient(
-        135deg,
-        var(--accent-teal),
-        var(--primary-blue)
-    );
+    background: linear-gradient(135deg,
+            var(--accent-teal),
+            var(--primary-blue));
     border-radius: 2px;
 }
 
@@ -335,11 +327,9 @@ body::before {
 
 /* Botón de comprar profesional */
 #btnComprar {
-    background: linear-gradient(
-        135deg,
-        var(--primary-blue),
-        var(--deep-blue)
-    ) !important;
+    background: linear-gradient(135deg,
+            var(--primary-blue),
+            var(--deep-blue)) !important;
     border: none !important;
     border-radius: 16px !important;
     padding: 20px 40px !important;
@@ -363,21 +353,17 @@ body::before {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
     transition: left 0.5s;
 }
 
 #btnComprar:hover {
-    background: linear-gradient(
-        135deg,
-        var(--deep-blue),
-        var(--primary-blue)
-    ) !important;
+    background: linear-gradient(135deg,
+            var(--deep-blue),
+            var(--primary-blue)) !important;
     transform: translateY(-2px);
     box-shadow: 0 16px 40px rgba(46, 134, 171, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -390,6 +376,7 @@ body::before {
 #btnComprar:active {
     transform: translateY(-1px) scale(0.98);
 }
+
 #btncomprar i {
     color: white;
 }
@@ -432,12 +419,10 @@ body::before {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(
-        90deg,
-        var(--primary-blue),
-        var(--accent-teal),
-        var(--sky-blue)
-    );
+    background: linear-gradient(90deg,
+            var(--primary-blue),
+            var(--accent-teal),
+            var(--sky-blue));
     border-radius: 24px 24px 0 0;
 }
 
@@ -482,11 +467,9 @@ body::before {
 }
 
 .list-unstyled li:hover {
-    background: linear-gradient(
-        90deg,
-        rgba(46, 134, 171, 0.05),
-        rgba(135, 206, 235, 0.05)
-    );
+    background: linear-gradient(90deg,
+            rgba(46, 134, 171, 0.05),
+            rgba(135, 206, 235, 0.05));
     transform: translateX(8px);
     border-left-color: var(--accent-teal);
     box-shadow: 0 4px 12px rgba(46, 134, 171, 0.08);
@@ -554,6 +537,7 @@ body::before {
         opacity: 0;
         transform: translateX(-40px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -565,6 +549,7 @@ body::before {
         opacity: 0;
         transform: translateX(40px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -594,13 +579,11 @@ html {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(
-        90deg,
-        var(--primary-blue),
-        var(--accent-teal),
-        var(--sky-blue),
-        var(--primary-blue)
-    );
+    background: linear-gradient(90deg,
+            var(--primary-blue),
+            var(--accent-teal),
+            var(--sky-blue),
+            var(--primary-blue));
     background-size: 200% 100%;
     animation: gradient 3s linear infinite;
 }
@@ -609,10 +592,12 @@ html {
     0% {
         background-position: 0% 50%;
     }
+
     100% {
         background-position: 200% 50%;
     }
 }
+
 footer {
     background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
     color: white;
