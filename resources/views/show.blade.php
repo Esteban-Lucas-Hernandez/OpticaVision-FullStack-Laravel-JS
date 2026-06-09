@@ -10,7 +10,7 @@
             <!-- Imagen Principal -->
             <div class="product-gallery-main mb-3 text-center">
                 <img id="mainImage"
-                     src="{{ asset('storage/' . $product->images->first()->image) }}"
+                     src="{{ $product->images->first()->url }}"
                      alt="Imagen principal del producto"
                      class="img-fluid rounded shadow-sm"
                      style="max-height: 500px; object-fit: contain;">
@@ -20,7 +20,7 @@
             <div class="product-gallery-thumbnails d-flex gap-2 justify-content-center flex-wrap p-2"
                  style="border-radius: 10px; background-color: #f8f9fa;">
                 @foreach($product->images as $img)
-                    <img src="{{ asset('storage/' . $img->image) }}"
+                    <img src="{{ $img->url }}"
                          alt="Miniatura"
                          class="gallery-thumb border rounded"
                          style="width: 100px; height: 100px; object-fit: cover; cursor: pointer;"

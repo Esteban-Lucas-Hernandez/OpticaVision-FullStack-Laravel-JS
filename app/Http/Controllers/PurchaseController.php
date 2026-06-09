@@ -13,16 +13,20 @@ use Illuminate\Support\Facades\Storage;
 
 class PurchaseController extends Controller
 {
-    // Registrar compra y generar PDF
+    /**
+     * Registra una nueva compra en estado 'pendiente' y genera el recibo de compra en PDF.
+     * Guarda el recibo en el disco 'public' y responde con los datos en formato JSON.
+     */
     public function store(Product $product, Request $request)
     {
+        // Verificar que el usuario esté autenticado
         if (!Auth::check()) {
             return response()->json(['success' => false, 'message' => 'No autenticado'], 401);
         }
 
         $user = Auth::user();
 
-        // Guardar la compra con estado pendiente
+        // Crear registro de compra asociando comprador, vendedor y producto
         $purchase = Purchase::create([
             'buyer_id'     => $user->id,
             'product_id'   => $product->id,
@@ -31,7 +35,7 @@ class PurchaseController extends Controller
             'purchased_at' => now(),
         ]);
 
-        // Generar el PDF del recibo
+        // Cargar vista HTML del recibo y generar el documento PDF
         $pdf = Pdf::loadView('pdf.receipt', [
             'user'     => $user,
             'product'  => $product,
@@ -40,10 +44,10 @@ class PurchaseController extends Controller
 
         $pdfPath = 'receipts/receipt_' . $purchase->id . '.pdf';
 
-        // Guardar el PDF en storage/app/public/receipts
+        // Guardar el PDF físicamente en el disco público (storage/app/public/receipts)
         Storage::disk('public')->put($pdfPath, $pdf->output());
 
-        // Responder con la URL pública del PDF
+        // Retornar la respuesta JSON con la URL del PDF generado
         return response()->json([
             'success' => true,
             'pdf_url' => asset('storage/' . $pdfPath),
@@ -51,10 +55,12 @@ class PurchaseController extends Controller
         ]);
     }
 
-    // Listado para el administrador o vendedor
+    /**
+     * Muestra la vista de historial de compras para administradores/vendedores.
+     */
     public function index()
     {
-        // Trae todas las compras con comprador y producto relacionados
+        // Cargar relaciones correspondientes y ordenar cronológicamente
         $purchases = Purchase::with(['buyer', 'product'])
             ->orderBy('purchased_at', 'desc')
             ->get();
@@ -62,33 +68,41 @@ class PurchaseController extends Controller
         return view('admin.products.historial', compact('purchases'));
     }
 
-    // Actualizar estado de la compra (aceptar o rechazar)
+    /**
+     * Actualiza el estado de una compra (Aceptada / Rechazada).
+     * Solo permite al vendedor dueño del producto modificar este estado.
+     */
     public function update(Request $request, Purchase $purchase)
     {
         $data = $request->json()->all();
 
+        // Validar que el estado sea correcto
         if (!isset($data['status']) || !in_array($data['status'], ['aceptada', 'rechazada'])) {
             return response()->json(['success' => false, 'message' => 'Estado inválido']);
         }
 
+        // Verificar que el usuario autenticado sea el vendedor de dicho producto
         if (Auth::id() !== $purchase->product->seller_id) {
             return response()->json(['success' => false, 'message' => 'No autorizado'], 403);
         }
 
+        // Guardar el nuevo estado
         $purchase->status = $data['status'];
         $purchase->save();
 
         return response()->json(['success' => true]);
     }
 
-    // Historial de compras pendientes para el vendedor
+    /**
+     * Obtiene el listado de compras pendientes de aprobación específicas para el vendedor logueado.
+     */
     public function sellerHistory()
     {
-        $user = Auth::user(); // vendedor
+        $user = Auth::user();
 
         $purchases = Purchase::with(['buyer', 'product'])
             ->whereHas('product', function ($q) use ($user) {
-                $q->where('seller_id', $user->id);
+                $q->where('seller_id', $user->id); // Filtrar por los productos del vendedor
             })
             ->where('status', 'pendiente')
             ->orderBy('purchased_at', 'desc')
@@ -97,9 +111,11 @@ class PurchaseController extends Controller
         return view('seller.historial', compact('purchases'));
     }
 
+    /**
+     * Muestra el panel completo de historial de compras para el administrador.
+     */
     public function adminPurchasesHistory()
     {
-        // Traemos todas las compras con comprador, producto y vendedor
         $purchases = Purchase::with(['buyer', 'product', 'product.seller'])
             ->orderBy('created_at', 'desc')
             ->get();
@@ -107,6 +123,9 @@ class PurchaseController extends Controller
         return view('admin.purchases.history', compact('purchases'));
     }
 
+    /**
+     * Retorna las últimas 5 notificaciones de compras realizadas por el usuario cliente actual.
+     */
     public function userNotifications()
     {
         $user = auth()->user();
@@ -128,6 +147,9 @@ class PurchaseController extends Controller
         return response()->json($data);
     }
 
+    /**
+     * Cuenta cuántas notificaciones de compras del usuario cliente se han actualizado desde una fecha dada.
+     */
     public function userNotificationStatus(Request $request)
     {
         if (!auth()->check()) {
@@ -138,7 +160,7 @@ class PurchaseController extends Controller
         $lastChecked = $request->input('since');
 
         $query = Purchase::where('buyer_id', $user->id)
-            ->where('status', '!=', 'pendiente');
+            ->where('status', '!=', 'pendiente'); // Solo notificar aceptaciones o rechazos
 
         if ($lastChecked) {
             try {
@@ -153,6 +175,9 @@ class PurchaseController extends Controller
         return response()->json(['count' => $count]);
     }
 
+    /**
+     * Genera un reporte PDF con todo el historial de compras registrado y fuerza su descarga.
+     */
     public function downloadPdfHistory()
     {
         $purchases = Purchase::with(['buyer', 'product', 'product.seller'])
@@ -164,11 +189,17 @@ class PurchaseController extends Controller
         return $pdf->download('historial-de-compras.pdf');
     }
 
+    /**
+     * Exporta el historial de compras en formato Excel (.xlsx).
+     */
     public function downloadExcelHistory()
     {
         return Excel::download(new PurchasesExport, 'historial-de-compras.xlsx');
     }
 
+    /**
+     * Vacía por completo la tabla de compras en la base de datos (Truncate).
+     */
     public function clearHistory()
     {
         Purchase::truncate();

@@ -124,7 +124,7 @@
                     {{-- Reutilizamos el diseño de .card que ya teníamos --}}
                     <div class="card">
                         @if($product->images->first())
-                            <img src="{{ asset('storage/' . $product->images->first()->image) }}" alt="{{ $product->name }}" />
+                            <img src="{{ $product->images->first()->url }}" alt="{{ $product->name }}" />
                         @endif
                         
                         <h3>{{ $product->name }}</h3>
@@ -171,7 +171,7 @@
                     <div class="swiper-slide">
                         <div class="card">
                             @if($product->images->first())
-                                <img src="{{ asset('storage/' . $product->images->first()->image) }}" alt="{{ $product->name }}" />
+                                <img src="{{ $product->images->first()->url }}" alt="{{ $product->name }}" />
                             @endif
 
                             <h3>{{ $product->name }}</h3>

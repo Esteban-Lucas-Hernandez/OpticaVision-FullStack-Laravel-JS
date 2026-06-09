@@ -1,62 +1,159 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🕶️ Óptica Vision - FullStack Laravel & JS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Óptica Vision es una aplicación web moderna diseñada para la gestión, exhibición y venta de productos ópticos. Permite la administración de productos, el manejo de ofertas especiales, la generación automatizada de recibos de compra en formato PDF y exportaciones a Excel. Además, cuenta con un sistema robusto de roles de usuario (Administrador, Vendedor y Cliente) con notificaciones en tiempo real sobre el estado de las compras.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ Requisitos e Instalación
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 1. Clonar el repositorio (Común para Windows y Linux)
+```bash
+git clone https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS.git
+cd OpticaVision-FullStack-Laravel-JS
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+### 🐧 Opción A: Instalación en Linux (Ubuntu/Debian)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### A.1. Instalar dependencias del sistema y PHP
+Asegúrate de actualizar los repositorios de paquetes del sistema e instalar Composer junto con las extensiones de PHP necesarias para el proyecto:
+```bash
+sudo apt update
+sudo apt install composer -y
+sudo apt update && sudo apt install php8.4-xml php8.4-gd php-sqlite3 -y
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+#### A.2. Instalar dependencias del proyecto (Laravel)
+Instala las dependencias definidas en el archivo `composer.json`:
+```bash
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### A.3. Configurar variables de entorno y clave de aplicación
+Crea tu archivo `.env` a partir del ejemplo y genera la clave única de encriptación:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Laravel Sponsors
+#### A.4. Preparar la Base de Datos (SQLite)
+Crea la base de datos de SQLite, limpia la caché de Laravel y ejecuta las migraciones junto con los seeders iniciales:
+```bash
+touch database/database.sqlite
+php artisan config:clear
+php artisan cache:clear
+php artisan migrate --seed
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+### 🪟 Opción B: Instalación en Windows
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+> [!NOTE]
+> Se recomienda contar con **PHP 8.2+**, **Composer** y **Node.js** instalados en el sistema. Puedes usar herramientas como **Laravel Herd** o **Laragon** para facilitar la gestión del entorno en Windows. Asegúrate de tener habilitadas las extensiones `fileinfo`, `gd`, `sqlite3` y `xml` en tu archivo `php.ini`.
 
-## Contributing
+#### B.1. Instalar dependencias de PHP (Laravel)
+Abre tu terminal (PowerShell o CMD) en la raíz del proyecto y ejecuta:
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### B.2. Configurar variables de entorno y clave de aplicación
+* **En CMD (Símbolo del sistema):**
+  ```cmd
+  copy .env.example .env
+  php artisan key:generate
+  ```
+* **En PowerShell:**
+  ```powershell
+  Copy-Item .env.example -Destination .env
+  php artisan key:generate
+  ```
 
-## Code of Conduct
+#### B.3. Preparar la Base de Datos (SQLite)
+* **En CMD (Símbolo del sistema):**
+  ```cmd
+  type nul > database\database.sqlite
+  php artisan config:clear
+  php artisan cache:clear
+  php artisan migrate --seed
+  ```
+* **En PowerShell:**
+  ```powershell
+  New-Item database\database.sqlite -ItemType File -Force
+  php artisan config:clear
+  php artisan cache:clear
+  php artisan migrate --seed
+  ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+### 🚀 Levantar los servidores locales (Común)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Para ejecutar el proyecto, debes levantar los servidores de PHP y Node.js en paralelo (ya sea en Windows o en Linux):
 
-## License
+* **Terminal 1 (Servidor Backend de Laravel):**
+  ```bash
+  php artisan serve
+  ```
+  *(El proyecto estará disponible en `http://localhost:8000`)*
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-en fin laravel.
+* **Terminal 2 (Compilador de Assets Vite/Frontend):**
+  ```bash
+  npm install
+  npm run dev
+  ```
+
+---
+
+## 📁 Estructura del Proyecto
+
+El proyecto sigue una estructura limpia basada en el patrón de arquitectura de capas y separación de responsabilidades:
+
+```text
+OpticaVision-FullStack-Laravel-JS/
+├── app/                              # Lógica principal de la aplicación en PHP
+│   ├── Exports/                      # Clases de exportación (ej. a hojas de cálculo de Excel)
+│   ├── Http/                         # Capa de control de flujo HTTP
+│   │   ├── Controllers/              # Controladores que reciben peticiones y ejecutan lógica
+│   │   │   ├── Admin/                # Controladores específicos de la administración
+│   │   │   ├── Client/               # Controladores específicos de clientes
+│   │   │   ├── Seller/               # Controladores específicos de vendedores
+│   │   │   ├── Controller.php        # Controlador base de Laravel
+│   │   │   ├── BaseController.php    # Base común con respuestas estandarizadas
+│   │   │   ├── ProductController.php # Lógica pública e interna de productos y catálogo
+│   │   │   └── PurchaseController.php# Lógica del flujo de compras, generación de PDFs e historial
+│   │   └── Middleware/               # Middlewares de seguridad (filtrado por roles, auth, etc.)
+│   ├── Models/                       # Modelos Eloquent ORM que representan las tablas de la BD
+│   │   ├── Product.php               # Modelo de Producto
+│   │   ├── ProductImage.php          # Modelo de Imágenes de Productos (soporta URLs externas y locales)
+│   │   ├── Purchase.php              # Modelo de Órdenes de Compra y transacciones
+│   │   └── User.php                  # Modelo de Usuario con roles (admin, vendedor, cliente)
+│   └── Services/                     # Servicios especializados con lógica de negocio aislada
+├── config/                           # Archivos de configuración del Framework
+├── database/                         # Migraciones, factories y bases de datos locales
+│   ├── migrations/                   # Archivos de esquema de tablas SQL
+│   ├── seeders/                      # Poblamiento inicial de datos (usuarios e imágenes)
+│   └── database.sqlite               # Base de datosSQLite en desarrollo
+├── public/                           # Assets estáticos accesibles directamente por el navegador
+├── resources/                        # Archivos fuente del frontend
+│   ├── css/                          # Archivos de estilos (TailwindCSS)
+│   ├── js/                           # JavaScript de interacción dinámica
+│   └── views/                        # Vistas Blade estructuradas por módulos y roles
+├── routes/                           # Definición de todas las rutas del sistema
+│   ├── web.php                       # Rutas web principales
+│   ├── api.php                       # Rutas de endpoints API
+│   └── auth.php                      # Rutas predefinidas del sistema de autenticación
+├── storage/                          # Almacenamiento local (imágenes subidas, recibos PDF de compras)
+├── composer.json                     # Archivo de dependencias del ecosistema PHP
+└── package.json                      # Archivo de dependencias del ecosistema Node.js
+```
+
+---
+
+## 🎨 Características Destacadas
+* **Carga Dinámica de Imágenes:** Soporta el renderizado de imágenes almacenadas de manera local en el servidor, así como URLs absolutas de imágenes provenientes de servidores externos (ej. MercadoLibre).
+* **Control de Roles Integrado:** Acceso diferenciado por perfiles (Administrador, Vendedor y Cliente).
+* **Generación de Reportes:** Exportación de compras en formato Excel y descarga automatizada de recibos en formato PDF.
+* **Notificaciones Dinámicas:** Sistema ligero para notificar de inmediato a los compradores cuando sus transacciones han sido aceptadas o rechazadas por un vendedor.

@@ -88,45 +88,45 @@ class ProductAndImagesSeeder extends Seeder
         // Insertar imágenes
         DB::table('product_images')->insert([
             // Product 10
-            ['product_id' => 10, 'image' => 'products/zlCS4DliMi1ev7kUxpe3JXOPcVNJ30W89UwAb3ah.jpg'],
-            ['product_id' => 10, 'image' => 'products/qioPsX4LS9oUfN6KgPc1Gj5Jse8PZfhzAkJrLlfy.jpg'],
-            ['product_id' => 10, 'image' => 'products/oYE8vBPSA2Nzf4DwMiCb1alEMNsXMypuAUZyDq1j.jpg'],
-            ['product_id' => 10, 'image' => 'products/luFzv1zQAylEksvtgOdUBI4LCg3KAnDersIZ63JV.jpg'],
+            ['product_id' => 10, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_627542-MLA108311913496_032026-F.webp'],
+            ['product_id' => 10, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_876124-MLA109103523161_032026-F.webp'],
+            ['product_id' => 10, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_993738-MLA108312386952_032026-F.webp'],
+            ['product_id' => 10, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_805322-MLA108312801648_032026-F.webp'],
 
             // Product 12
-            ['product_id' => 12, 'image' => 'products/HTahoTkF4SLP4vGL8zZ2p6WWoIJaRfcwvNYF0reQ.png'],
+            ['product_id' => 12, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_860418-MLA84534391406_052025-F.webp'],
 
             // Product 14
-            ['product_id' => 14, 'image' => 'products/LRedDGJVNWZfTHITHdeRb4MDBqFcMz4PQ3OPkEmr.webp'],
+            ['product_id' => 14, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_836257-MLA91326909758_092025-F.webp'],
 
             // Product 15
-            ['product_id' => 15, 'image' => 'products/aIhe3LJhfyMqUidV7KhwXr5TOqkPef3TwDpN1Tfy.webp'],
-            ['product_id' => 15, 'image' => 'products/RYxNAYygGwnNxYCtDJUjqkAlUj1TDKahXsNuahTR.webp'],
+            ['product_id' => 15, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_666114-MCO105969288187_012026-F.webp'],
+            ['product_id' => 15, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_944421-MCO105969288181_012026-F.webp'],
 
             // Product 16
-            ['product_id' => 16, 'image' => 'products/mXcmD41QqMFv542YQGZ222n5b5EwaI3tqtfZ5CQW.webp'],
-            ['product_id' => 16, 'image' => 'products/wkKgM2mIS3RIcNeCQRziT17yvSL3Drc1uxiRSOJK.webp'],
-            ['product_id' => 16, 'image' => 'products/jppY790Yd8QF4gYC9etL3jWssyhkdT6EcbB0OXi0.webp'],
+            ['product_id' => 16, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_787351-CBT70165983792_062023-F.webp'],
+            ['product_id' => 16, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_737842-CBT70165983802_062023-F.webp'],
+            ['product_id' => 16, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_909515-CBT70165983798_062023-F.webp'],
 
             // Product 17
-            ['product_id' => 17, 'image' => 'products/RyMqPp6YqNngeBH8NwdJdMw2wgmpTw6psIYgfSea.webp'],
-            ['product_id' => 17, 'image' => 'products/HAHOahgTOEASIBpgnQWvVljyBby06DwzZKtpxSqv.webp'],
-            ['product_id' => 17, 'image' => 'products/6zNnoUSFrw07DXWexLJ3GcbOJQI7UlOdfofL9inL.webp'],
+            ['product_id' => 17, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_632876-MLA99946790041_112025-F.webp'],
+            ['product_id' => 17, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_675539-MLA74651636894_022024-F.webp'],
+            ['product_id' => 17, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_839628-MLA108920958556_032026-F.webp'],
 
             // Product 18
-            ['product_id' => 18, 'image' => 'products/4Tqn0nUe6XiNoIlA8uHWdAGu0VCn3X8h8ysCuq8e.webp'],
-            ['product_id' => 18, 'image' => 'products/ltgvNfZcAO5GsYLDKwFFXymIfy5R39EZK9WDXmGP.webp'],
-            ['product_id' => 18, 'image' => 'products/rdJ8ICnl5k6Rj92cLtXldjkmz9ZXwBTQYPIxRdyR.webp'],
+            ['product_id' => 18, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_859015-CBT75754906352_042024-F.webp'],
+            ['product_id' => 18, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_663132-CBT70848186038_082023-F.webp'],
+            ['product_id' => 18, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_990684-CBT70848186040_082023-F.webp'],
 
             // Product 19
-            ['product_id' => 19, 'image' => 'products/8aXjOQBNX1q3S6IDtMxanwKRxAjAnlJCXFwLJ2KA.webp'],
-            ['product_id' => 19, 'image' => 'products/GHzefr7llzE0tdMPMm1ruf8ZqtCA1i92bKv5lZBz.webp'],
-            ['product_id' => 19, 'image' => 'products/vzT38V0mYQdkiVNIxYvgBp6xAKjD5c6cxYtCA7B6.webp'],
+            ['product_id' => 19, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_646619-CBT94466868703_102025-F.webp'],
+            ['product_id' => 19, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_843787-CBT81383887322_122024-F.webp'],
+            ['product_id' => 19, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_829225-CBT81383887318_122024-F.webp'],
 
             // Product 20
-            ['product_id' => 20, 'image' => 'products/Df0SezH6gg98to0rTmIRkB7aPiiRgeMB7IvaUJZv.webp'],
-            ['product_id' => 20, 'image' => 'products/vYmLXtePEhiVhketVgkqxYlO7N7WggeNWx4mTRMd.webp'],
-            ['product_id' => 20, 'image' => 'products/yoh0sjI9nqeh3EAPB9LMiyLQWhZsTp1tOsohiUNP.webp'],
+            ['product_id' => 20, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_763033-MLM87416690548_072025-F.webp'],
+            ['product_id' => 20, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_943257-MLA95846829829_102025-F.webp'],
+            ['product_id' => 20, 'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_970951-MLA81202160394_122024-F.webp'],
         ]);
     }
 }
