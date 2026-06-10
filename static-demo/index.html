@@ -1,406 +1,540 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Óptica Vision - Demo</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Óptica Vision - Demo</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- BANNER DEMO -->
-<div class="demo-banner">
-  🚧 Esto es una <strong>demo estática</strong> del proyecto NOTA (El diseño no es el 100% igual). Las funciones reales requieren el backend Laravel.
-  <a href="https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS" target="_blank">📂 Ver repositorio completo</a>
-</div>
-
-<!-- NAV -->
-<nav class="navbar with-banner">
-  <div class="nav-container">
-    <div class="logo"><i class="fas fa-glasses"></i></div>
-    <button class="hamburger" id="hamburger">☰</button>
-    <ul class="menu" id="menu">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#productos">Productos</a></li>
-      <li><a href="#ofertas">Ofertas</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#testimonios">Testimonios</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <div class="top-right links">
-      <a href="#" class="demo-trigger" style="margin-top:15px">Log in</a>
-      <a href="#" class="demo-trigger" style="margin-top:15px">Register</a>
-    </div>
+  <!-- BANNER DEMO -->
+  <div class="demo-banner">
+    🚧 Esto es una <strong>demo estática</strong> del proyecto NOTA (El diseño no es el 100% igual). Las funciones
+    reales requieren el backend Laravel.
+    <a href="https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS" target="_blank">📂 Ver
+      repositorio completo</a>
   </div>
-</nav>
 
-<!-- INICIO -->
-<section id="inicio" style="text-align:center;padding:60px 20px;position:relative;z-index:10;">
-  <h1 style="font-size:40px;margin-bottom:20px;">Óptica Vision Perfecta</h1>
-  <p style="max-width:600px;margin:0 auto 30px;font-size:18px;line-height:1.5;">
-    Especialistas en salud visual con más de 20 años de experiencia.
-    Ofrecemos soluciones ópticas personalizadas con la más alta tecnología y atención profesional.
-  </p>
-  <form id="searchForm" style="display:inline-block;width:60%;max-width:500px;position:relative;z-index:20;">
-    <input type="text" id="searchInput" placeholder="Buscar producto..."
-      style="width:70%;padding:12px;border:1px solid #ccc;border-radius:8px 0 0 8px;outline:none;background:white;">
-    <button type="submit"
-      style="padding:12px 20px;background:#1078b9;color:white;border:none;border-radius:0 8px 8px 0;cursor:pointer;">
-      Buscar
-    </button>
-  </form>
-</section>
-
-<main>
-
-<!-- PRODUCTOS -->
-<section id="productos">
-  <center><h1 style="font-size:40px">Productos</h1></center>
-  <div class="swiper products-carousel">
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_627542-MLA108311913496_032026-F.webp" alt="Gafas Arnette"/>
-        <h3>Gafas Arnette</h3>
-        <p>Estilo urbano y moderno, diseñadas para ofrecer comodidad y resistencia.</p>
-        <p style="color:#10b981">Precio: $15.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_860418-MLA84534391406_052025-F.webp" alt="Gafas Redondas"/>
-        <h3>Gafas Redondas Negras</h3>
-        <p>Clásicas y sofisticadas, ideales para cualquier ocasión.</p>
-        <p style="color:#10b981">Precio: $30.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_836257-MLA91326909758_092025-F.webp" alt="Gafas Premium"/>
-        <h3>Gafas Premium</h3>
-        <p>Elegancia atemporal y estilo versátil para cualquier look.</p>
-        <p style="color:#10b981">Precio: $40.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_666114-MCO105969288187_012026-F.webp" alt="Gafas Sol Premium"/>
-        <h3>Gafas de Sol Premium</h3>
-        <p>Estilo exclusivo con máxima protección y acabado de lujo.</p>
-        <p style="color:#10b981">Precio: $40.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_787351-CBT70165983792_062023-F.webp" alt="Gafas Urbanas"/>
-        <h3>Gafas Urbanas</h3>
-        <p>Estilo moderno y desenfadado, perfectas para un look casual.</p>
-        <p style="color:#10b981">Precio: $15.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_632876-MLA99946790041_112025-F.webp" alt="Gafas Modernas"/>
-        <h3>Gafas Modernas</h3>
-        <p>Diseño contemporáneo que combina estilo y comodidad.</p>
-        <p style="color:#10b981">Precio: $80.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_859015-CBT75754906352_042024-F.webp" alt="Lentes Unisex"/>
-        <h3>Lentes Planos Unisex</h3>
-        <p>Estilo moderno y cómodo, para cualquier ocasión.</p>
-        <p style="color:#10b981">Precio: $20.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_646619-CBT94466868703_102025-F.webp" alt="Gafas Marco"/>
-        <h3>Gafas Marco Premium</h3>
-        <p>Diseño elegante y exclusivo, con acabados de alta calidad.</p>
-        <p style="color:#10b981">Precio: $50.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_763033-MLM87416690548_072025-F.webp" alt="Gafas Anti-luz"/>
-        <h3>Gafas Anti-luz Azul</h3>
-        <p>Protección eficaz contra la luz azul, cuidando tus ojos frente a pantallas.</p>
-        <p style="color:#10b981">Precio: $100.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_876124-MLA109103523161_032026-F.webp" alt="Gafas Arnette 2"/>
-        <h3>Gafas Arnette Sport</h3>
-        <p>Para un estilo activo, con lentes polarizadas de alta resistencia.</p>
-        <p style="color:#10b981">Precio: $18.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_675539-MLA74651636894_022024-F.webp" alt="Gafas Retro"/>
-        <h3>Gafas Retro Vintage</h3>
-        <p>El encanto clásico de los años 70 con materiales modernos y ligeros.</p>
-        <p style="color:#10b981">Precio: $35.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_663132-CBT70848186038_082023-F.webp" alt="Lentes Cuadrados"/>
-        <h3>Lentes Cuadrados Unisex</h3>
-        <p>Montura cuadrada de tendencia, perfecta para rostros ovalados.</p>
-        <p style="color:#10b981">Precio: $22.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
+  <!-- NAV -->
+  <nav class="navbar with-banner">
+    <div class="nav-container">
+      <div class="logo"><i class="fas fa-glasses"></i></div>
+      <button class="hamburger" id="hamburger">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#ofertas">Ofertas</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="top-right links">
+        <a href="#" class="demo-trigger" style="margin-top:15px">Log in</a>
+        <a href="#" class="demo-trigger" style="margin-top:15px">Register</a>
+      </div>
     </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-</section>
+  </nav>
 
-<!-- OFERTAS -->
-<section id="ofertas" class="card-section offers-section">
-  <h2>Ofertas Especiales</h2>
-  <div class="swiper offers-carousel">
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_860418-MLA84534391406_052025-F.webp" alt="Oferta Redondas"/>
-        <h3>Gafas Redondas Negras</h3>
-        <p>Clásicas y sofisticadas, estas gafas son ideales para cualquier ocasión.</p>
-        <p class="offer-price">¡Precio especial!</p>
-        <p style="color:#10b981">Precio: $30.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_836257-MLA91326909758_092025-F.webp" alt="Oferta Premium"/>
-        <h3>Gafas Premium</h3>
-        <p>Elegancia atemporal y estilo versátil para cualquier look.</p>
-        <p class="offer-price">¡Precio especial!</p>
-        <p style="color:#10b981">Precio: $40.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_632876-MLA99946790041_112025-F.webp" alt="Oferta Modernas"/>
-        <h3>Gafas Modernas</h3>
-        <p>Diseño contemporáneo que combina estilo y comodidad excepcional.</p>
-        <p class="offer-price">¡Precio especial!</p>
-        <p style="color:#10b981">Precio: $80.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-      <div class="swiper-slide"><div class="card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_859015-CBT75754906352_042024-F.webp" alt="Oferta Unisex"/>
-        <h3>Lentes Planos Unisex</h3>
-        <p>Estilo moderno y cómodo, para cualquier ocasión del día.</p>
-        <p class="offer-price">¡Precio especial!</p>
-        <p style="color:#10b981">Precio: $20.000</p>
-        <button class="demo-trigger">Ver más</button>
-      </div></div>
-
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section id="servicios" class="section-container fade-in">
-  <h2 class="section-title">Nuestros Servicios Profesionales</h2>
-  <div class="services-grid">
-    <div class="service-card"><i class="fas fa-eye"></i><h3>Examen Visual Completo</h3><p>Evaluaciones profesionales con equipos de última generación para detectar problemas visuales y enfermedades oculares.</p></div>
-    <div class="service-card"><i class="fas fa-glasses"></i><h3>Lentes Oftálmicos</h3><p>Amplio catálogo de lentes con tratamientos antirreflejante, fotocromáticos y progresivos de las mejores marcas.</p></div>
-    <div class="service-card"><i class="fas fa-sun"></i><h3>Lentes de Sol</h3><p>Protección UV completa con diseños modernos y graduaciones personalizadas para cada necesidad.</p></div>
-    <div class="service-card"><i class="fas fa-tools"></i><h3>Reparaciones</h3><p>Servicio técnico especializado en reparación y ajuste de monturas con garantía de calidad.</p></div>
-    <div class="service-card"><i class="fas fa-shipping-fast"></i><h3>Entrega Express</h3><p>Servicio de entrega rápida para que tengas tus lentes listos en el menor tiempo posible.</p></div>
-    <div class="service-card"><i class="fas fa-certificate"></i><h3>Garantía Extendida</h3><p>Respaldo completo en todos nuestros productos con política de cambio y satisfacción garantizada.</p></div>
-  </div>
-</section>
-
-<!-- NOSOTROS -->
-<section id="nosotros" class="section-container fade-in">
-  <h2 class="section-title">Acerca de Nosotros</h2>
-  <div class="about-content">
-    <p>Con más de dos décadas de experiencia en el sector óptico, Óptica Vision se ha consolidado como líder en el cuidado de la salud visual. Contamos con un equipo de profesionales especializados y tecnología de vanguardia para ofrecerte soluciones ópticas personalizadas.</p>
-    <div class="stats-grid">
-      <div class="stat-item"><i class="fas fa-users"></i><h3>25,000+</h3><p>Clientes Satisfechos</p></div>
-      <div class="stat-item"><i class="fas fa-award"></i><h3>20+</h3><p>Años de Experiencia</p></div>
-      <div class="stat-item"><i class="fas fa-eye"></i><h3>1,200+</h3><p>Modelos Disponibles</p></div>
-      <div class="stat-item"><i class="fas fa-star"></i><h3>4.9/5</h3><p>Calificación Promedio</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIOS -->
-<section id="testimonios" class="section-container fade-in">
-  <h2 class="section-title">Testimonios de Nuestros Clientes</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card"><p>"Excelente atención profesional y productos de la más alta calidad. El equipo es muy conocedor y me ayudaron a encontrar exactamente lo que necesitaba."</p><h4>— Dr. María González, Médica</h4></div>
-    <div class="testimonial-card"><p>"El servicio es impecable, desde el examen visual hasta la entrega de los lentes. La calidad de las monturas y cristales es excepcional."</p><h4>— Carlos Rodríguez, Ingeniero</h4></div>
-    <div class="testimonial-card"><p>"Profesionales altamente capacitados y tecnología de punta. Los lentes progresivos que me fabricaron son perfectos. La adaptación fue muy rápida."</p><h4>— Ana López, Arquitecta</h4></div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="section-container fade-in">
-  <h2 class="section-title">Preguntas Frecuentes</h2>
-  <div class="faq-container">
-    <div class="faq-item">
-      <div class="faq-question"><span>¿Cómo puedo agendar un examen visual?</span><i class="fas fa-chevron-down"></i></div>
-      <div class="faq-answer"><p>Puedes agendar tu cita llamando a nuestro número telefónico, visitando nuestra tienda física, o a través de nuestro sistema de citas online.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>¿Qué métodos de pago aceptan?</span><i class="fas fa-chevron-down"></i></div>
-      <div class="faq-answer"><p>Aceptamos efectivo, tarjetas de crédito y débito de todas las franquicias, transferencias bancarias, y planes de financiamiento sin intereses.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>¿Cuál es la garantía de los productos?</span><i class="fas fa-chevron-down"></i></div>
-      <div class="faq-answer"><p>Ofrecemos garantía completa: 2 años en monturas, 1 año en cristales oftálmicos, y 6 meses en lentes de contacto.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>¿Cuánto tiempo tardan en fabricar los lentes?</span><i class="fas fa-chevron-down"></i></div>
-      <div class="faq-answer"><p>Cristales simples 24-48 horas, bifocales 3-5 días hábiles, progresivos de alta gama 7-10 días hábiles.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>¿Realizan reparaciones de monturas?</span><i class="fas fa-chevron-down"></i></div>
-      <div class="faq-answer"><p>Sí, contamos con taller especializado. Soldadura de monturas metálicas, cambio de plaquetas nasales, ajuste de patillas. La mayoría se realizan mientras esperas.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- SUSCRIPCIÓN -->
-<section id="suscripcion" class="fade-in">
-  <div class="subscription-section">
-    <h2>Mantente Informado</h2>
-    <p>Suscríbete a nuestro newsletter para recibir ofertas exclusivas, consejos de salud visual y promociones especiales para clientes VIP.</p>
-    <form class="form-container" onsubmit="event.preventDefault(); showDemoModal();">
-      <input type="email" placeholder="Ingresa tu correo electrónico" required/>
-      <button type="submit">Suscribirse</button>
+  <!-- INICIO -->
+  <section id="inicio" style="text-align:center;padding:60px 20px;position:relative;z-index:10;">
+    <h1 style="font-size:40px;margin-bottom:20px;">Óptica Vision Perfecta</h1>
+    <p style="max-width:600px;margin:0 auto 30px;font-size:18px;line-height:1.5;">
+      Especialistas en salud visual con más de 20 años de experiencia.
+      Ofrecemos soluciones ópticas personalizadas con la más alta tecnología y atención profesional.
+    </p>
+    <form id="searchForm" style="display:inline-block;width:60%;max-width:500px;position:relative;z-index:20;">
+      <input type="text" id="searchInput" placeholder="Buscar producto..."
+        style="width:70%;padding:12px;border:1px solid #ccc;border-radius:8px 0 0 8px;outline:none;background:white;">
+      <button type="submit"
+        style="padding:12px 20px;background:#1078b9;color:white;border:none;border-radius:0 8px 8px 0;cursor:pointer;">
+        Buscar
+      </button>
     </form>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="section-container fade-in">
-  <h2 class="section-title">Información de Contacto</h2>
-  <div class="contact-grid">
-    <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h3>Ubicación</h3><p>Av. Principal #123<br>Centro Comercial Plaza Mayor<br>Piso 2, Local 205<br>Turbána, Bolívar</p></div>
-    <div class="contact-card"><i class="fas fa-phone"></i><h3>Teléfonos</h3><p>Fijo: (605) 123-4567<br>Móvil: (301) 234-5678<br>WhatsApp: (320) 345-6789</p></div>
-    <div class="contact-card"><i class="fas fa-envelope"></i><h3>Email</h3><p>info@opticavision.co<br>ventas@opticavision.co<br>citas@opticavision.co</p></div>
-    <div class="contact-card"><i class="fas fa-clock"></i><h3>Horarios</h3><p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábados: 8:00 AM - 4:00 PM<br>Domingos: 10:00 AM - 2:00 PM</p></div>
-  </div>
-</section>
+  <main>
 
-</main>
+    <!-- PRODUCTOS -->
+    <section id="productos">
+      <center>
+        <h1 style="font-size:40px">Productos</h1>
+      </center>
+      <div class="swiper products-carousel">
+        <div class="swiper-wrapper">
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-links">
-      <a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#ofertas">Ofertas</a>
-      <a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#testimonios">Testimonios</a>
-      <a href="#faq">FAQ</a><a href="#contacto">Contacto</a>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_627542-MLA108311913496_032026-F.webp"
+                alt="Gafas Arnette" />
+              <h3>Gafas Arnette</h3>
+              <p>Estilo urbano y moderno, diseñadas para ofrecer comodidad y resistencia.</p>
+              <p style="color:#10b981">Precio: $15.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_860418-MLA84534391406_052025-F.webp"
+                alt="Gafas Redondas" />
+              <h3>Gafas Redondas Negras</h3>
+              <p>Clásicas y sofisticadas, ideales para cualquier ocasión.</p>
+              <p style="color:#10b981">Precio: $30.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_836257-MLA91326909758_092025-F.webp"
+                alt="Gafas Premium" />
+              <h3>Gafas Premium</h3>
+              <p>Elegancia atemporal y estilo versátil para cualquier look.</p>
+              <p style="color:#10b981">Precio: $40.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_666114-MCO105969288187_012026-F.webp"
+                alt="Gafas Sol Premium" />
+              <h3>Gafas de Sol Premium</h3>
+              <p>Estilo exclusivo con máxima protección y acabado de lujo.</p>
+              <p style="color:#10b981">Precio: $40.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_787351-CBT70165983792_062023-F.webp"
+                alt="Gafas Urbanas" />
+              <h3>Gafas Urbanas</h3>
+              <p>Estilo moderno y desenfadado, perfectas para un look casual.</p>
+              <p style="color:#10b981">Precio: $15.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_632876-MLA99946790041_112025-F.webp"
+                alt="Gafas Modernas" />
+              <h3>Gafas Modernas</h3>
+              <p>Diseño contemporáneo que combina estilo y comodidad.</p>
+              <p style="color:#10b981">Precio: $80.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_859015-CBT75754906352_042024-F.webp"
+                alt="Lentes Unisex" />
+              <h3>Lentes Planos Unisex</h3>
+              <p>Estilo moderno y cómodo, para cualquier ocasión.</p>
+              <p style="color:#10b981">Precio: $20.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_646619-CBT94466868703_102025-F.webp" alt="Gafas Marco" />
+              <h3>Gafas Marco Premium</h3>
+              <p>Diseño elegante y exclusivo, con acabados de alta calidad.</p>
+              <p style="color:#10b981">Precio: $50.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_763033-MLM87416690548_072025-F.webp"
+                alt="Gafas Anti-luz" />
+              <h3>Gafas Anti-luz Azul</h3>
+              <p>Protección eficaz contra la luz azul, cuidando tus ojos frente a pantallas.</p>
+              <p style="color:#10b981">Precio: $100.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_876124-MLA109103523161_032026-F.webp"
+                alt="Gafas Arnette 2" />
+              <h3>Gafas Arnette Sport</h3>
+              <p>Para un estilo activo, con lentes polarizadas de alta resistencia.</p>
+              <p style="color:#10b981">Precio: $18.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_675539-MLA74651636894_022024-F.webp" alt="Gafas Retro" />
+              <h3>Gafas Retro Vintage</h3>
+              <p>El encanto clásico de los años 70 con materiales modernos y ligeros.</p>
+              <p style="color:#10b981">Precio: $35.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_663132-CBT70848186038_082023-F.webp"
+                alt="Lentes Cuadrados" />
+              <h3>Lentes Cuadrados Unisex</h3>
+              <p>Montura cuadrada de tendencia, perfecta para rostros ovalados.</p>
+              <p style="color:#10b981">Precio: $22.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <!-- OFERTAS -->
+    <section id="ofertas" class="card-section offers-section">
+      <h2>Ofertas Especiales</h2>
+      <div class="swiper offers-carousel">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_860418-MLA84534391406_052025-F.webp"
+                alt="Oferta Redondas" />
+              <h3>Gafas Redondas Negras</h3>
+              <p>Clásicas y sofisticadas, estas gafas son ideales para cualquier ocasión.</p>
+              <p class="offer-price">¡Precio especial!</p>
+              <p style="color:#10b981">Precio: $30.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_836257-MLA91326909758_092025-F.webp"
+                alt="Oferta Premium" />
+              <h3>Gafas Premium</h3>
+              <p>Elegancia atemporal y estilo versátil para cualquier look.</p>
+              <p class="offer-price">¡Precio especial!</p>
+              <p style="color:#10b981">Precio: $40.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_632876-MLA99946790041_112025-F.webp"
+                alt="Oferta Modernas" />
+              <h3>Gafas Modernas</h3>
+              <p>Diseño contemporáneo que combina estilo y comodidad excepcional.</p>
+              <p class="offer-price">¡Precio especial!</p>
+              <p style="color:#10b981">Precio: $80.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_2X_859015-CBT75754906352_042024-F.webp"
+                alt="Oferta Unisex" />
+              <h3>Lentes Planos Unisex</h3>
+              <p>Estilo moderno y cómodo, para cualquier ocasión del día.</p>
+              <p class="offer-price">¡Precio especial!</p>
+              <p style="color:#10b981">Precio: $20.000</p>
+              <button class="demo-trigger">Ver más</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section-container fade-in">
+      <h2 class="section-title">Nuestros Servicios Profesionales</h2>
+      <div class="services-grid">
+        <div class="service-card"><i class="fas fa-eye"></i>
+          <h3>Examen Visual Completo</h3>
+          <p>Evaluaciones profesionales con equipos de última generación para detectar problemas visuales y enfermedades
+            oculares.</p>
+        </div>
+        <div class="service-card"><i class="fas fa-glasses"></i>
+          <h3>Lentes Oftálmicos</h3>
+          <p>Amplio catálogo de lentes con tratamientos antirreflejante, fotocromáticos y progresivos de las mejores
+            marcas.</p>
+        </div>
+        <div class="service-card"><i class="fas fa-sun"></i>
+          <h3>Lentes de Sol</h3>
+          <p>Protección UV completa con diseños modernos y graduaciones personalizadas para cada necesidad.</p>
+        </div>
+        <div class="service-card"><i class="fas fa-tools"></i>
+          <h3>Reparaciones</h3>
+          <p>Servicio técnico especializado en reparación y ajuste de monturas con garantía de calidad.</p>
+        </div>
+        <div class="service-card"><i class="fas fa-shipping-fast"></i>
+          <h3>Entrega Express</h3>
+          <p>Servicio de entrega rápida para que tengas tus lentes listos en el menor tiempo posible.</p>
+        </div>
+        <div class="service-card"><i class="fas fa-certificate"></i>
+          <h3>Garantía Extendida</h3>
+          <p>Respaldo completo en todos nuestros productos con política de cambio y satisfacción garantizada.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="section-container fade-in">
+      <h2 class="section-title">Acerca de Nosotros</h2>
+      <div class="about-content">
+        <p>Con más de dos décadas de experiencia en el sector óptico, Óptica Vision se ha consolidado como líder en el
+          cuidado de la salud visual. Contamos con un equipo de profesionales especializados y tecnología de vanguardia
+          para ofrecerte soluciones ópticas personalizadas.</p>
+        <div class="stats-grid">
+          <div class="stat-item"><i class="fas fa-users"></i>
+            <h3>25,000+</h3>
+            <p>Clientes Satisfechos</p>
+          </div>
+          <div class="stat-item"><i class="fas fa-award"></i>
+            <h3>20+</h3>
+            <p>Años de Experiencia</p>
+          </div>
+          <div class="stat-item"><i class="fas fa-eye"></i>
+            <h3>1,200+</h3>
+            <p>Modelos Disponibles</p>
+          </div>
+          <div class="stat-item"><i class="fas fa-star"></i>
+            <h3>4.9/5</h3>
+            <p>Calificación Promedio</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="section-container fade-in">
+      <h2 class="section-title">Testimonios de Nuestros Clientes</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>"Excelente atención profesional y productos de la más alta calidad. El equipo es muy conocedor y me
+            ayudaron a encontrar exactamente lo que necesitaba."</p>
+          <h4>— Dr. María González, Médica</h4>
+        </div>
+        <div class="testimonial-card">
+          <p>"El servicio es impecable, desde el examen visual hasta la entrega de los lentes. La calidad de las
+            monturas y cristales es excepcional."</p>
+          <h4>— Carlos Rodríguez, Ingeniero</h4>
+        </div>
+        <div class="testimonial-card">
+          <p>"Profesionales altamente capacitados y tecnología de punta. Los lentes progresivos que me fabricaron son
+            perfectos. La adaptación fue muy rápida."</p>
+          <h4>— Ana López, Arquitecta</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-container fade-in">
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question"><span>¿Cómo puedo agendar un examen visual?</span><i
+              class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>Puedes agendar tu cita llamando a nuestro número telefónico, visitando nuestra tienda física, o a través
+              de nuestro sistema de citas online.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>¿Qué métodos de pago aceptan?</span><i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>Aceptamos efectivo, tarjetas de crédito y débito de todas las franquicias, transferencias bancarias, y
+              planes de financiamiento sin intereses.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>¿Cuál es la garantía de los productos?</span><i
+              class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>Ofrecemos garantía completa: 2 años en monturas, 1 año en cristales oftálmicos, y 6 meses en lentes de
+              contacto.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>¿Cuánto tiempo tardan en fabricar los lentes?</span><i
+              class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>Cristales simples 24-48 horas, bifocales 3-5 días hábiles, progresivos de alta gama 7-10 días hábiles.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>¿Realizan reparaciones de monturas?</span><i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, contamos con taller especializado. Soldadura de monturas metálicas, cambio de plaquetas nasales,
+              ajuste de patillas. La mayoría se realizan mientras esperas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUSCRIPCIÓN -->
+    <section id="suscripcion" class="fade-in">
+      <div class="subscription-section">
+        <h2>Mantente Informado</h2>
+        <p>Suscríbete a nuestro newsletter para recibir ofertas exclusivas, consejos de salud visual y promociones
+          especiales para clientes VIP.</p>
+        <form class="form-container" onsubmit="event.preventDefault(); showDemoModal();">
+          <input type="email" placeholder="Ingresa tu correo electrónico" required />
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section-container fade-in">
+      <h2 class="section-title">Información de Contacto</h2>
+      <div class="contact-grid">
+        <div class="contact-card"><i class="fas fa-map-marker-alt"></i>
+          <h3>Ubicación</h3>
+          <p>Av. Principal #123<br>Centro Comercial Plaza Mayor<br>Piso 2, Local 205<br>Turbána, Bolívar</p>
+        </div>
+        <div class="contact-card"><i class="fas fa-phone"></i>
+          <h3>Teléfonos</h3>
+          <p>Fijo: (605) 123-4567<br>Móvil: (301) 234-5678<br>WhatsApp: (320) 345-6789</p>
+        </div>
+        <div class="contact-card"><i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p>info@opticavision.co<br>ventas@opticavision.co<br>citas@opticavision.co</p>
+        </div>
+        <div class="contact-card"><i class="fas fa-clock"></i>
+          <h3>Horarios</h3>
+          <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábados: 8:00 AM - 4:00 PM<br>Domingos: 10:00 AM - 2:00 PM</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#ofertas">Ofertas</a>
+        <a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#testimonios">Testimonios</a>
+        <a href="#faq">FAQ</a><a href="#contacto">Contacto</a>
+      </div>
+      <div class="social-links">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS" target="_blank"
+          title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Óptica Vision. Todos los derechos reservados.</p>
+        <p>Registro Sanitario INVIMA: NSOC-SO123456 | RUT: 900.123.456-7</p>
+      </div>
     </div>
-    <div class="social-links">
-      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Óptica Vision. Todos los derechos reservados.</p>
-      <p>Registro Sanitario INVIMA: NSOC-SO123456 | RUT: 900.123.456-7</p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- MODAL DEMO -->
-<div class="demo-overlay" id="demoModal">
-  <div class="demo-modal">
-    <div class="demo-icon">🧑‍💻</div>
-    <h2>¡Esto es una Demo!</h2>
-    <p>Estás viendo la versión <strong>estática</strong> del frontend. El sistema real incluye:</p>
-    <ul style="text-align:left;color:#475569;margin:1rem 0;line-height:2;">
-      <li>🔐 Login y Registro con roles (Admin, Vendedor, Cliente)</li>
-      <li>🛒 Carrito de compras y gestión de pedidos</li>
-      <li>📊 Panel de administración completo</li>
-      <li>📄 Generación de PDF y exportación a Excel</li>
-      <li>🔔 Notificaciones en tiempo real</li>
-    </ul>
-    <p style="font-size:.9rem;">Para probarlo localmente, clona el repositorio y sigue las instrucciones del README.</p>
-    <div style="margin-top:2rem;">
-      <a href="https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS" target="_blank" class="btn-clone">
-        <i class="fab fa-github"></i> Ir al Repositorio
-      </a>
-      <button class="btn-close-modal" id="closeModal">Entendido</button>
+  <!-- MODAL DEMO -->
+  <div class="demo-overlay" id="demoModal">
+    <div class="demo-modal">
+      <div class="demo-icon">🧑‍💻</div>
+      <h2>¡Esto es una Demo!</h2>
+      <p>Estás viendo la versión <strong>estática</strong> del frontend. El sistema real incluye:</p>
+      <ul style="text-align:left;color:#475569;margin:1rem 0;line-height:2;">
+        <li>🔐 Login y Registro con roles (Admin, Vendedor, Cliente)</li>
+        <li>🛒 Carrito de compras y gestión de pedidos</li>
+        <li>📊 Panel de administración completo</li>
+        <li>📄 Generación de PDF y exportación a Excel</li>
+        <li>🔔 Notificaciones en tiempo real</li>
+      </ul>
+      <p style="font-size:.9rem;">Para probarlo localmente, clona el repositorio y sigue las instrucciones del README.
+      </p>
+      <div style="margin-top:2rem;">
+        <a href="https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS" target="_blank"
+          class="btn-clone">
+          <i class="fab fa-github"></i> Ir al Repositorio
+        </a>
+        <button class="btn-close-modal" id="closeModal">Entendido</button>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-// Modal
-const modal = document.getElementById('demoModal');
-const closeBtn = document.getElementById('closeModal');
-function showDemoModal() { modal.classList.add('active'); }
-document.querySelectorAll('.demo-trigger').forEach(t => t.addEventListener('click', e => { e.preventDefault(); showDemoModal(); }));
-closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-modal.addEventListener('click', e => { if(e.target===modal) modal.classList.remove('active'); });
+  <script>
+    // Modal
+    const modal = document.getElementById('demoModal');
+    const closeBtn = document.getElementById('closeModal');
+    function showDemoModal() { modal.classList.add('active'); }
+    document.querySelectorAll('.demo-trigger').forEach(t => t.addEventListener('click', e => { e.preventDefault(); showDemoModal(); }));
+    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('active'); });
 
-// Hamburger
-document.getElementById('hamburger').addEventListener('click', () => document.getElementById('menu').classList.toggle('active'));
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('menu').classList.toggle('active'));
 
-// FAQ
-document.querySelectorAll('.faq-question').forEach(q => {
-  q.addEventListener('click', () => {
-    const ans = q.nextElementSibling;
-    const icon = q.querySelector('i');
-    const visible = ans.style.display === 'block';
-    document.querySelectorAll('.faq-answer').forEach(a => a.style.display='none');
-    document.querySelectorAll('.faq-question').forEach(x => x.classList.remove('active'));
-    if(!visible) { ans.style.display='block'; q.classList.add('active'); }
-  });
-});
+    // FAQ
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const ans = q.nextElementSibling;
+        const icon = q.querySelector('i');
+        const visible = ans.style.display === 'block';
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+        document.querySelectorAll('.faq-question').forEach(x => x.classList.remove('active'));
+        if (!visible) { ans.style.display = 'block'; q.classList.add('active'); }
+      });
+    });
 
-// Scroll animations
-const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:0.1, rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Scroll animations
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    e.preventDefault();
-    const t = document.querySelector(this.getAttribute('href'));
-    if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
-  });
-});
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
 
-// Swipers
-new Swiper('.products-carousel', {
-  loop:true, spaceBetween:30,
-  pagination:{el:'.products-carousel .swiper-pagination', clickable:true},
-  navigation:{nextEl:'.products-carousel .swiper-button-next', prevEl:'.products-carousel .swiper-button-prev'},
-  breakpoints:{320:{slidesPerView:1,spaceBetween:20},768:{slidesPerView:2,spaceBetween:30},1024:{slidesPerView:3,spaceBetween:30},1200:{slidesPerView:4,spaceBetween:30}}
-});
-new Swiper('.offers-carousel', {
-  loop:true, spaceBetween:30,
-  pagination:{el:'.offers-carousel .swiper-pagination', clickable:true},
-  navigation:{nextEl:'.offers-carousel .swiper-button-next', prevEl:'.offers-carousel .swiper-button-prev'},
-  breakpoints:{320:{slidesPerView:1,spaceBetween:20},768:{slidesPerView:2,spaceBetween:30},1024:{slidesPerView:3,spaceBetween:30}}
-});
-</script>
+    // Swipers
+    new Swiper('.products-carousel', {
+      loop: true, spaceBetween: 30,
+      pagination: { el: '.products-carousel .swiper-pagination', clickable: true },
+      navigation: { nextEl: '.products-carousel .swiper-button-next', prevEl: '.products-carousel .swiper-button-prev' },
+      breakpoints: { 320: { slidesPerView: 1, spaceBetween: 20 }, 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 30 }, 1200: { slidesPerView: 4, spaceBetween: 30 } }
+    });
+    new Swiper('.offers-carousel', {
+      loop: true, spaceBetween: 30,
+      pagination: { el: '.offers-carousel .swiper-pagination', clickable: true },
+      navigation: { nextEl: '.offers-carousel .swiper-button-next', prevEl: '.offers-carousel .swiper-button-prev' },
+      breakpoints: { 320: { slidesPerView: 1, spaceBetween: 20 }, 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }
+    });
+  </script>
 </body>
+
 </html>

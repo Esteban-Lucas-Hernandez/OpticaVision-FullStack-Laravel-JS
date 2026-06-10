@@ -1,134 +1,165 @@
-<x-guest-layout>
-    {{-- ===== BANNER DE DEMO ===== --}}
-    <div style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; text-align: center; padding: 14px 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(217,119,6,0.3);">
-        <p style="font-size: 1rem; font-weight: 600; margin-bottom: 6px;">
-            🚧 ¡Esta es solo una Demo del Proyecto!
-        </p>
-        <p style="font-size: 0.875rem; opacity: 0.95; margin-bottom: 10px;">
-            Para explorar el sistema completo con todas sus funciones, puedes clonar el repositorio.
-        </p>
-        <a href="https://github.com/Esteban-Lucas-Hernandez/OpticaVision-FullStack-Laravel-JS"
-           target="_blank"
-           style="display: inline-block; background: white; color: #92400e; font-weight: 700; font-size: 0.85rem; padding: 6px 18px; border-radius: 8px; text-decoration: none; transition: all 0.2s;"
-           onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';"
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            <svg style="display: inline; width: 16px; height: 16px; vertical-align: middle; margin-right: 5px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            Clonar desde GitHub
-        </a>
-    </div>
-    {{-- ===== FIN BANNER DEMO ===== --}}
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gradient-to-br from-[#e6f2ff] to-[#b3d9ff]">
 
-    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4">
-        <div class="w-full max-w-md">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
-                <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-8 text-center relative">
-                    <div class="absolute inset-0 bg-black opacity-0 hover:opacity-5 transition-opacity duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="mx-auto bg-white/20 backdrop-blur-sm rounded-full p-3 w-16 h-16 flex items-center justify-center mb-4">
-                            <svg class="h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                        </div>
-                        <h1 class="text-3xl font-bold text-white">Welcome Back</h1>
-                        <p class="text-blue-200 mt-2">Sign in to continue to your account</p>
+
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#e6f2ff] to-[#b3d9ff] p-4 sm:p-8">
+        <div class="w-full max-w-5xl flex rounded-[2rem] shadow-2xl overflow-hidden bg-white transform transition-all duration-500 hover:shadow-[0_25px_50px_-12px_rgba(18,132,209,0.25)]">
+            
+            <!-- Left Side: Branding -->
+            <div class="hidden lg:flex lg:w-5/12 bg-gradient-to-br from-[#1284d1] to-[#0a4d7a] p-12 flex-col justify-center relative overflow-hidden text-white">
+                <!-- decorative background shapes -->
+                <div class="absolute top-0 left-0 w-64 h-64 bg-white opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 right-0 w-80 h-80 bg-white opacity-10 rounded-full translate-x-1/3 translate-y-1/3"></div>
+                <div class="absolute top-1/2 right-0 w-32 h-32 bg-[#e6f2ff] opacity-10 rounded-full translate-x-1/2 -translate-y-1/2 blur-2xl"></div>
+                
+                <div class="relative z-10 text-center flex flex-col items-center">
+                    <!-- glasses logo -->
+                    <div class="bg-white/20 p-5 rounded-full backdrop-blur-sm mb-8 shadow-lg">
+                        <svg class="w-16 h-16 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="6" cy="15" r="4"></circle>
+                            <circle cx="18" cy="15" r="4"></circle>
+                            <path d="M14 15a2 2 0 0 0-4 0"></path>
+                            <path d="M2.5 13L5 7c.7-1.3 1.4-2 3-2"></path>
+                            <path d="M21.5 13L19 7c-.7-1.3-1.5-2-3-2"></path>
+                        </svg>
+                    </div>
+                    
+                    <h2 class="text-4xl font-extrabold mb-4 tracking-tight">Óptica Vision Perfecta</h2>
+                    <p class="text-lg text-blue-100 font-medium leading-relaxed max-w-xs mx-auto">
+                        Especialistas en salud visual. Ofrecemos soluciones ópticas personalizadas con la más alta tecnología.
+                    </p>
+                    
+                    <!-- Decorative dots -->
+                    <div class="flex space-x-2 mt-12">
+                        <div class="w-3 h-3 bg-white rounded-full opacity-100"></div>
+                        <div class="w-3 h-3 bg-white rounded-full opacity-50"></div>
+                        <div class="w-3 h-3 bg-white rounded-full opacity-50"></div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Right Side: Login Form -->
+            <div class="w-full lg:w-7/12 p-10 sm:p-14 md:p-16 flex flex-col justify-center bg-white relative">
                 
-                <div class="p-8">
-                    <!-- Session Status -->
-                    <x-auth-session-status class="mb-6" :status="session('status')" />
-                    
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        
-                        <div class="space-y-6">
-                            <!-- Email Address -->
-                            <div>
-                                <x-input-label for="email" :value="__('Email Address')" class="text-gray-700 font-medium mb-2" />
-                                <div class="mt-1 relative group">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg class="h-5 w-5 text-gray-400 transition-colors duration-200 group-focus-within:text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                        </svg>
-                                    </div>
-                                    <x-text-input id="email" 
-                                                class="block w-full pl-10 pr-3 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-md" 
-                                                type="email" 
-                                                name="email" 
-                                                :value="old('email')" 
-                                                required 
-                                                autofocus 
-                                                autocomplete="username" 
-                                                placeholder="your@email.com" />
-                                </div>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                            </div>
-                            
-                            <!-- Password -->
-                            <div>
-                                <x-input-label for="password" :value="__('Password')" class="text-gray-700 font-medium mb-2" />
-                                <div class="mt-1 relative group">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg class="h-5 w-5 text-gray-400 transition-colors duration-200 group-focus-within:text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                    <x-text-input id="password" 
-                                                class="block w-full pl-10 pr-3 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-md" 
-                                                type="password" 
-                                                name="password" 
-                                                required 
-                                                autocomplete="current-password" 
-                                                placeholder="••••••••" />
-                                </div>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                            </div>
-                            
-                            <!-- Remember Me & Forgot Password -->
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <input id="remember_me" type="checkbox" class="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded transition duration-200 cursor-pointer" name="remember">
-                                    <label for="remember_me" class="ml-2 block text-sm text-gray-700 cursor-pointer">
-                                        {{ __('Remember me') }}
-                                    </label>
-                                </div>
-                                
-                                @if (Route::has('password.request'))
-                                    <a class="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors duration-200" href="{{ route('password.request') }}">
-                                        {{ __('Forgot your password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                            
-                            <!-- Login Button -->
-                            <div>
-                                <x-primary-button class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 transform hover:-translate-y-0.5">
-                                    {{ __('Sign In') }}
-                                </x-primary-button>
-                            </div>
-                        </div>
-                    </form>
-                    
-                    <!-- Registration Link -->
-                    <div class="mt-8 pt-6 border-t border-gray-100 text-center">
-                        <p class="text-sm text-gray-600">
-                            Don't have an account?
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-200">
-                                    {{ __('Sign up') }}
-                                </a>
-                            @endif
-                        </p>
+                <!-- Mobile Logo (shows only on small screens) -->
+                <div class="lg:hidden flex justify-center mb-8">
+                    <div class="bg-[#1284d1]/10 p-4 rounded-full text-[#1284d1]">
+                        <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="6" cy="15" r="4"></circle>
+                            <circle cx="18" cy="15" r="4"></circle>
+                            <path d="M14 15a2 2 0 0 0-4 0"></path>
+                            <path d="M2.5 13L5 7c.7-1.3 1.4-2 3-2"></path>
+                            <path d="M21.5 13L19 7c-.7-1.3-1.5-2-3-2"></path>
+                        </svg>
                     </div>
+                </div>
+
+                <div class="mb-10 text-center lg:text-left">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-[#173e67] mb-3">Bienvenido de nuevo</h1>
+                    <p class="text-gray-500 text-lg">Ingresa a tu cuenta para continuar</p>
+                </div>
+                
+                <!-- Session Status -->
+                <x-auth-session-status class="mb-6" :status="session('status')" />
+                
+                <form method="POST" action="{{ route('login') }}" class="space-y-6">
+                    @csrf
+                    
+                    <!-- Email Address -->
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-[#173e67] mb-2 uppercase tracking-wide">Correo Electrónico</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400 group-focus-within:text-[#1284d1] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                                </svg>
+                            </div>
+                            <x-text-input id="email" 
+                                          class="block w-full pl-12 pr-4 py-4 border-2 border-gray-100 rounded-xl focus:ring-0 focus:border-[#1284d1] transition-all bg-gray-50 text-gray-800 text-lg shadow-sm hover:border-gray-200" 
+                                          type="email" 
+                                          name="email" 
+                                          :value="old('email')" 
+                                          required 
+                                          autofocus 
+                                          autocomplete="username" 
+                                          placeholder="tu@correo.com" />
+                        </div>
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    </div>
+                    
+                    <!-- Password -->
+                    <div>
+                        <label for="password" class="block text-sm font-bold text-[#173e67] mb-2 uppercase tracking-wide">Contraseña</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400 group-focus-within:text-[#1284d1] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                            <x-text-input id="password" 
+                                          class="block w-full pl-12 pr-4 py-4 border-2 border-gray-100 rounded-xl focus:ring-0 focus:border-[#1284d1] transition-all bg-gray-50 text-gray-800 text-lg shadow-sm hover:border-gray-200" 
+                                          type="password" 
+                                          name="password" 
+                                          required 
+                                          autocomplete="current-password" 
+                                          placeholder="••••••••" />
+                        </div>
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    </div>
+                    
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between mt-4">
+                        <div class="flex items-center">
+                            <input id="remember_me" type="checkbox" class="h-5 w-5 text-[#1284d1] focus:ring-[#1284d1] border-gray-300 rounded cursor-pointer transition-colors" name="remember">
+                            <label for="remember_me" class="ml-2 block text-sm font-medium text-gray-600 cursor-pointer">
+                                Recordarme
+                            </label>
+                        </div>
+                        
+                        @if (Route::has('password.request'))
+                            <a class="text-sm font-bold text-[#1284d1] hover:text-[#0a4d7a] transition-colors" href="{{ route('password.request') }}">
+                                ¿Olvidaste tu contraseña?
+                            </a>
+                        @endif
+                    </div>
+                    
+                    <!-- Login Button -->
+                    <div class="pt-4">
+                        <button type="submit" class="w-full flex justify-center items-center py-4 px-4 rounded-xl shadow-[0_10px_20px_rgba(18,132,209,0.3)] text-white bg-[#1284d1] hover:bg-[#0a4d7a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1284d1] transition-all transform hover:-translate-y-1 text-lg font-bold tracking-wide">
+                            Ingresar
+                            <svg class="ml-2 -mr-1 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Registration Link -->
+                <div class="mt-12 text-center border-t border-gray-100 pt-8">
+                    <p class="text-base text-gray-600">
+                        ¿No tienes una cuenta?
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="font-bold text-[#1284d1] hover:text-[#0a4d7a] transition-colors ml-1">
+                                Regístrate aquí
+                            </a>
+                        @endif
+                    </p>
                 </div>
             </div>
             
-            <div class="mt-8 text-center">
-                <p class="text-xs text-gray-500">
-                    &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
-                </p>
-            </div>
         </div>
     </div>
-</x-guest-layout>
+</body>
+</html>
