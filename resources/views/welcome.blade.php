@@ -4,12 +4,13 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Óptica Vision - Catálogo de Productos</title>
+        <meta name="description" content="Óptica Vision - Especialistas en salud visual. Catálogo de lentes, armazones y servicios ópticos profesionales." />
         <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             rel="stylesheet"
         />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
         <link
@@ -20,142 +21,230 @@
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
     </head>
     <body>
-        <!-- NAV -->
-        <nav class="navbar">
-    <div class="nav-container">
-        <!-- Logo -->
-        <div class="logo">
-            <i class="fas fa-glasses"></i>
-        </div>
+        <!-- NAV PREMIUM -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
 
-        <!-- Nombre del usuario -->
-        @auth
-        <h2><span class="user-name">{{ Auth::user()->name }}</span></h2>
-        @endauth
+                <!-- Logo -->
+                <a href="#inicio" class="nav-logo">
+                    <i class="fas fa-glasses nav-logo-icon"></i>
+                    <span class="nav-logo-text">Óptica <strong>Vision</strong></span>
+                </a>
 
-        <!-- Botón hamburguesa -->
-        <button class="hamburger" id="hamburger">
-            ☰
-        </button>
-
-        <!-- Menú -->
-        <ul class="menu" id="menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#ofertas">Ofertas</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#testimonios">Testimonios</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-
-        <!-- Links derecha -->
-        <div class="top-right links">
-            @guest
-            <a href="{{ route('login') }}" style="margin-top: 15px">Log in</a>
-            <a href="{{ route('register') }}" style="margin-top: 15px">Register</a>
-            @endguest 
-
-            @auth
-            <!-- Notificaciones -->
-            <div style="display: inline-block; position: relative">
-                <button id="btnNotifications" style="font-size: 20px; background: none; border: none; cursor: pointer;">
-                    🔔
-                    <span id="notificationBadge"></span>
+                <!-- Botón hamburguesa -->
+                <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
                 </button>
-                <div id="notificationsBox"
-                    style="display: none; position: absolute; top: 30px; right: 0; background: white; border: 1px solid #ddd; padding: 10px; width: 280px; margin-top: 12px;">
-                    <p><strong>Últimas compras actualizadas:</strong></p>
-                    <ul id="notificationsList"></ul>
+
+                <!-- Menú central -->
+                <ul class="menu" id="menu">
+                    <li><a href="#inicio" class="nav-link">Colecciones</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#ofertas" class="nav-link">Exámenes</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#contacto" class="nav-link">Ubicaciones</a></li>
+                </ul>
+
+                <!-- Acciones derecha -->
+                <div class="nav-actions">
+                    <!-- Búsqueda -->
+                    <button class="nav-search-btn" id="searchToggle" aria-label="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                    @auth
+                    <!-- Notificaciones -->
+                    <div class="nav-notif-wrap">
+                        <button id="btnNotifications" class="nav-notif-btn" aria-label="Notificaciones">
+                            <i class="fas fa-bell"></i>
+                            <span id="notificationBadge" class="notif-badge"></span>
+                        </button>
+                        <div id="notificationsBox" class="notif-dropdown">
+                            <p class="notif-title"><strong>Últimas compras</strong></p>
+                            <ul id="notificationsList" class="notif-list"></ul>
+                        </div>
+                    </div>
+
+                    <!-- Usuario + Logout -->
+                    <div class="nav-user-menu">
+                        <button class="nav-user-btn" id="userMenuToggle">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="user-name-short">{{ Auth::user()->name }}</span>
+                            <i class="fas fa-chevron-down nav-chevron"></i>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="user-dropdown-header">
+                                <i class="fas fa-user-circle" style="font-size:2rem; color:#0ea5e9;"></i>
+                                <div>
+                                    <p class="ud-name">{{ Auth::user()->name }}</p>
+                                    <p class="ud-email">{{ Auth::user()->email }}</p>
+                                </div>
+                            </div>
+                            <div class="user-dropdown-divider"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="ud-logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    @endauth
+
+                    @guest
+                    <a href="{{ route('login') }}" class="nav-btn-ghost">Ingresar</a>
+                    @endguest
+
+                    <!-- CTA Principal -->
+                    <a href="#contacto" class="nav-btn-cta">Reservar Cita</a>
                 </div>
+
             </div>
 
-            <!-- Logout -->
-            <form method="POST" action="{{ route('logout') }}" style="display: inline">
-                @csrf
-                <button type="submit" 
-                    style="background-color: rgb(237, 66, 66); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: all 0.2s ease; margin-top: 12px;"
-                    onmouseover="this.style.backgroundColor='#cc0000'; this.style.transform='scale(0.95)';"
-                    onmouseout="this.style.backgroundColor='rgb(237, 66, 66)'; this.style.transform='scale(1)';">
-                    Cerrar sesión
-                </button>
-            </form>
-            @endauth
-        </div>
-    </div>
-</nav>
+            <!-- Barra de búsqueda expandible -->
+            <div class="nav-search-bar" id="searchBar">
+                <div class="search-bar-inner">
+                    <i class="fas fa-search search-bar-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar lentes, armazones, servicios..." class="search-bar-input" />
+                    <button class="search-bar-close" id="searchClose"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+        </nav>
 
-
-        <!-- SECCIÓN INICIO -->
-
-<section id="inicio" style="text-align: center; padding: 60px 20px; position: relative; z-index: 10;">
-    <h1 style="font-size: 40px; margin-bottom: 20px;">Óptica Vision Perfecta</h1>
-    <p style="max-width: 600px; margin: 0 auto 30px auto; font-size: 18px; line-height: 1.5;">
-        Especialistas en salud visual con más de 20 años de experiencia. 
-        Ofrecemos soluciones ópticas personalizadas con la más alta tecnología 
-        y atención profesional.
-    </p>
-
-    <!-- BUSCADOR DENTRO DE INICIO -->
-    <form id="searchForm" style="display:inline-block; width: 60%; max-width: 500px; position: relative; z-index: 20;">
-        <input type="text" id="searchInput" placeholder="Buscar producto..." 
-               style="width: 70%; padding: 12px; border:1px solid #ccc; border-radius: 8px 0 0 8px; outline:none; position: relative; z-index: 30; background:white;">
-        <button type="submit" 
-                style="padding: 12px 20px; background:#1078b9; color:white; border:none; border-radius:0 8px 8px 0; cursor:pointer; position: relative; z-index: 30;">
-            Buscar
-        </button>
-    </form>
-</section>
+        <!-- HERO SECTION -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-promo-card">
+                    <p class="hero-promo-tag">Temporada de Sol</p>
+                    <h1 class="hero-promo-title">Nueva Colección<br>de Sol</h1>
+                    <p class="hero-promo-desc">Descubre la claridad perfecta con nuestra nueva línea de gafas de sol de diseñador. Protección UV con estilo editorial.</p>
+                    <a href="#productos" class="hero-promo-btn">Explorar Colección</a>
+                </div>
+            </div>
+            <!-- Dots decorativos del hero -->
+            <div class="hero-dots">
+                <span class="dot dot-active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
 
 
         <main>
 
     {{-- Usamos la clase .card-container para el div que envuelve los productos --}}
-   <section id="productos">
-<center><h1 style="font-size: 40px">Productos</h1></center>
+   <section id="productos" class="card-section">
+       <h2>Catálogo de Productos</h2>
+       
+       <div class="catalog-container">
+           <!-- Barra Lateral de Filtros (Sidebar) -->
+           <aside class="filter-sidebar">
+               <div class="filter-group">
+                   <label for="search-input-catalog">Buscar</label>
+                   <input type="text" id="search-input-catalog" placeholder="Buscar por nombre o descripción..." />
+               </div>
 
-    <div class="swiper products-carousel">
-        <div class="swiper-wrapper">
-            
-            @foreach($products as $product)
-                <div class="swiper-slide">
-                    
-                    {{-- Reutilizamos el diseño de .card que ya teníamos --}}
-                    <div class="card">
-                        @if($product->images->first())
-                            <img src="{{ $product->images->first()->url }}" alt="{{ $product->name }}" />
-                        @endif
-                        
-                        <h3>{{ $product->name }}</h3>
-                        <p>{{ $product->description }}</p>
+               <div class="filter-group">
+                   <label>Categoría</label>
+                   <div class="filter-options" id="category-filters">
+                       <button class="filter-btn active" data-category="all">Todos</button>
+                       @foreach($categories as $category)
+                           <button class="filter-btn" data-category="{{ $category->id }}">{{ $category->name }}</button>
+                       @endforeach
+                   </div>
+               </div>
 
-                        @if($product->on_offer)
-                            <p class="offer-price">¡En oferta!</p>
-                        @endif
-                        
-                        <p style="color: #10b981">Precio: ${{ number_format($product->price, 0, ',', '.') }}</p>
+               <div class="filter-group">
+                   <label>Género</label>
+                   <div class="filter-options" id="gender-filters">
+                       <button class="filter-btn active" data-gender="all">Todos</button>
+                       <button class="filter-btn" data-gender="Hombre">Hombre</button>
+                       <button class="filter-btn" data-gender="Mujer">Mujer</button>
+                       <button class="filter-btn" data-gender="Unisex">Unisex</button>
+                   </div>
+               </div>
 
-                        <a href="{{ route('products.show', $product->id) }}">
-                            <button>Ver más</button>
-                        </a>
-                    </div>
+               <div class="filter-group">
+                   <label for="brand-select">Marca</label>
+                   <select id="brand-select">
+                       <option value="all">Todas las marcas</option>
+                       @foreach($brands as $brand)
+                           <option value="{{ $brand }}">{{ $brand }}</option>
+                       @endforeach
+                   </select>
+               </div>
 
-                </div>
-            @endforeach
+               <div class="filter-group">
+                   <label>Rango de Precio</label>
+                   <div class="price-range-inputs">
+                       <input type="number" id="min-price" placeholder="Mín" min="0" />
+                       <span>-</span>
+                       <input type="number" id="max-price" placeholder="Máx" min="0" />
+                   </div>
+               </div>
 
-        </div>
-        
-        <div class="swiper-pagination"></div>
+               <div class="filter-group checkbox-group">
+                   <label>
+                       <input type="checkbox" id="offer-checkbox" /> En Oferta
+                   </label>
+               </div>
 
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
-</section>
+               <button id="clear-filters-btn" class="clear-btn">Limpiar Filtros</button>
+           </aside>
 
-{{-- DEBES HACER LO MISMO PARA LA SECCIÓN DE OFERTAS --}}
-{{-- Simplemente cambia el nombre de la clase del contenedor, por ejemplo a "offers-carousel" --}}
-</section>
+           <!-- Cuadrícula de Productos -->
+           <div class="products-grid-wrapper">
+               <div class="products-grid" id="products-grid">
+                   @foreach($products as $product)
+                       <div class="card product-card" 
+                            data-id="{{ $product->id }}"
+                            data-name="{{ strtolower($product->name) }}"
+                            data-description="{{ strtolower($product->description) }}"
+                            data-category="{{ $product->category_id }}"
+                            data-brand="{{ $product->brand }}"
+                            data-gender="{{ $product->gender }}"
+                            data-price="{{ $product->price }}"
+                            data-offer="{{ $product->on_offer ? '1' : '0' }}">
+                           
+                           @if($product->on_offer)
+                               <span class="badge-offer">Oferta</span>
+                           @endif
+
+                           @if($product->images->first())
+                               <img src="{{ $product->images->first()->url }}" alt="{{ $product->name }}" />
+                           @else
+                               <img src="https://placehold.co/600x400?text=Sin+Imagen" alt="{{ $product->name }}" />
+                           @endif
+
+                           <div class="card-content">
+                               <span class="product-category-tag">{{ $product->category->name ?? 'Sin Categoría' }}</span>
+                               <h3>{{ $product->name }}</h3>
+                               <div class="product-meta">
+                                   <span><i class="fas fa-tag"></i> {{ $product->brand ?? 'Genérica' }}</span>
+                                   <span><i class="fas fa-venus-mars"></i> {{ $product->gender ?? 'Unisex' }}</span>
+                               </div>
+                               <p>{{ Str::limit($product->description, 80) }}</p>
+                               <div class="price-action">
+                                   <span class="price-tag">${{ number_format($product->price, 0, ',', '.') }}</span>
+                                   <a href="{{ route('products.show', $product->id) }}">
+                                       <button class="btn-view-more">Ver más</button>
+                                   </a>
+                               </div>
+                           </div>
+                       </div>
+                   @endforeach
+               </div>
+               
+               <!-- Mensaje de no resultados -->
+               <div id="no-results" class="no-results hidden">
+                   <i class="fas fa-search"></i>
+                   <p>No se encontraron productos con los filtros seleccionados.</p>
+               </div>
+           </div>
+       </div>
+   </section>
 
             <!-- SECCIÓN OFERTAS - Solo agregando clases CSS -->
             <!-- SECCIÓN OFERTAS -->
@@ -518,9 +607,83 @@
             </div>
         </footer>
 
-        <!-- SCRIPT NOTIFICACIONES - SIN MODIFICAR -->
+        <!-- SCRIPTS NAVBAR + NOTIFICACIONES -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
+
+                // ── NAVBAR: Scroll effect ──────────────────────────────
+                const navbar = document.getElementById("navbar");
+                window.addEventListener("scroll", () => {
+                    navbar.classList.toggle("scrolled", window.scrollY > 20);
+                });
+
+                // ── NAVBAR: Hamburger ──────────────────────────────────
+                const hamburger = document.getElementById("hamburger");
+                const menu = document.getElementById("menu");
+                hamburger.addEventListener("click", () => {
+                    hamburger.classList.toggle("open");
+                    menu.classList.toggle("show");
+                });
+
+                // Cerrar menú al hacer clic en un enlace
+                menu.querySelectorAll(".nav-link").forEach(link => {
+                    link.addEventListener("click", () => {
+                        hamburger.classList.remove("open");
+                        menu.classList.remove("show");
+                    });
+                });
+
+                // ── NAVBAR: Search bar toggle ──────────────────────────
+                const searchToggle = document.getElementById("searchToggle");
+                const searchBar = document.getElementById("searchBar");
+                const searchClose = document.getElementById("searchClose");
+                const searchInput = document.getElementById("searchInput");
+
+                if (searchToggle && searchBar) {
+                    searchToggle.addEventListener("click", () => {
+                        searchBar.classList.toggle("open");
+                        if (searchBar.classList.contains("open")) {
+                            setTimeout(() => searchInput && searchInput.focus(), 100);
+                        }
+                    });
+                    searchClose && searchClose.addEventListener("click", () => {
+                        searchBar.classList.remove("open");
+                    });
+                }
+
+                // ── NAVBAR: User dropdown ──────────────────────────────
+                const userMenuToggle = document.getElementById("userMenuToggle");
+                const userDropdown = document.getElementById("userDropdown");
+
+                if (userMenuToggle && userDropdown) {
+                    userMenuToggle.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        const isOpen = userDropdown.classList.toggle("open");
+                        userMenuToggle.classList.toggle("open", isOpen);
+                    });
+                    document.addEventListener("click", (e) => {
+                        if (!userMenuToggle.contains(e.target) && !userDropdown.contains(e.target)) {
+                            userDropdown.classList.remove("open");
+                            userMenuToggle.classList.remove("open");
+                        }
+                    });
+                }
+
+                // ── Active nav link on scroll ──────────────────────────
+                const sections = document.querySelectorAll("section[id]");
+                const navLinks = document.querySelectorAll(".nav-link");
+                const observerNav = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach(l => l.classList.remove("active"));
+                            const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                            if (active) active.classList.add("active");
+                        }
+                    });
+                }, { threshold: 0.4 });
+                sections.forEach(s => observerNav.observe(s));
+
+                // ── NOTIFICACIONES ─────────────────────────────────────
                 const btn = document.getElementById("btnNotifications");
                 const box = document.getElementById("notificationsBox");
                 const list = document.getElementById("notificationsList");
@@ -562,9 +725,11 @@
                 }
 
                 if (btn) { // Asegurarse de que el botón existe antes de añadir el listener
-                    btn.addEventListener("click", async () => {
+                    btn.addEventListener("click", async (e) => {
+                        e.stopPropagation();
                         const isVisible = box.style.display === "block";
                         box.style.display = isVisible ? "none" : "block";
+                        if (!isVisible) document.addEventListener('click', () => { box.style.display = 'none'; }, { once: true });
 
                         if (!isVisible) { // Si se acaba de abrir
                             // Ocultar el badge y guardar la fecha de revisión
@@ -806,44 +971,151 @@
     });
 </script>
 <script>
-document.getElementById("searchForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input-catalog');
+    const categoryBtns = document.querySelectorAll('#category-filters .filter-btn');
+    const genderBtns = document.querySelectorAll('#gender-filters .filter-btn');
+    const brandSelect = document.getElementById('brand-select');
+    const minPriceInput = document.getElementById('min-price');
+    const maxPriceInput = document.getElementById('max-price');
+    const offerCheckbox = document.getElementById('offer-checkbox');
+    const clearBtn = document.getElementById('clear-filters-btn');
     
-    let query = document.getElementById("searchInput").value.toLowerCase().trim();
-    if (!query) return;
+    const productGrid = document.getElementById('products-grid');
+    const productCards = document.querySelectorAll('.product-card');
+    const noResults = document.getElementById('no-results');
 
-    // Buscar en productos normales
-    let productos = document.querySelectorAll("#productos .card h3");
-    for (let p of productos) {
-        if (p.textContent.toLowerCase().includes(query)) {
-            document.getElementById("productos").scrollIntoView({ behavior: "smooth" });
-            p.scrollIntoView({ behavior: "smooth", block: "center" });
-            p.style.backgroundColor = "#b2f2bb"; // verde pastel
-p.style.borderRadius = "8px";        // esquinas redondeadas
-p.style.padding = "4px";             // un poco de espacio interno
-// resaltado temporal
-            setTimeout(() => p.style.backgroundColor = "transparent", 2000);
-            return;
+    let activeCategory = 'all';
+    let activeGender = 'all';
+
+    // Category Buttons
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeCategory = this.getAttribute('data-category');
+            filterProducts();
+        });
+    });
+
+    // Gender Buttons
+    genderBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            genderBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeGender = this.getAttribute('data-gender');
+            filterProducts();
+        });
+    });
+
+    // Inputs Change Listeners
+    if (searchInput) searchInput.addEventListener('input', filterProducts);
+    if (brandSelect) brandSelect.addEventListener('change', filterProducts);
+    if (minPriceInput) minPriceInput.addEventListener('input', filterProducts);
+    if (maxPriceInput) maxPriceInput.addEventListener('input', filterProducts);
+    if (offerCheckbox) offerCheckbox.addEventListener('change', filterProducts);
+
+    // Clear Filters
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function() {
+            if (searchInput) searchInput.value = '';
+            if (brandSelect) brandSelect.value = 'all';
+            if (minPriceInput) minPriceInput.value = '';
+            if (maxPriceInput) maxPriceInput.value = '';
+            if (offerCheckbox) offerCheckbox.checked = false;
+            
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            if (categoryBtns[0]) categoryBtns[0].classList.add('active');
+            activeCategory = 'all';
+
+            genderBtns.forEach(b => b.classList.remove('active'));
+            if (genderBtns[0]) genderBtns[0].classList.add('active');
+            activeGender = 'all';
+
+            filterProducts();
+        });
+    }
+
+    // Main Filter Logic
+    function filterProducts() {
+        const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        const brand = brandSelect ? brandSelect.value : 'all';
+        const minPrice = parseFloat(minPriceInput ? minPriceInput.value : '') || 0;
+        const maxPrice = parseFloat(maxPriceInput ? maxPriceInput.value : '') || Infinity;
+        const onlyOffers = offerCheckbox ? offerCheckbox.checked : false;
+
+        let visibleCount = 0;
+
+        productCards.forEach(card => {
+            const cardName = card.getAttribute('data-name') || '';
+            const cardDesc = card.getAttribute('data-description') || '';
+            const cardCategory = card.getAttribute('data-category') || '';
+            const cardBrand = card.getAttribute('data-brand') || '';
+            const cardGender = card.getAttribute('data-gender') || '';
+            const cardPrice = parseFloat(card.getAttribute('data-price')) || 0;
+            const isOffer = card.getAttribute('data-offer') === '1';
+
+            // Match Category
+            const matchCategory = (activeCategory === 'all' || cardCategory === activeCategory);
+            
+            // Match Gender
+            const matchGender = (activeGender === 'all' || cardGender === activeGender);
+            
+            // Match Brand
+            const matchBrand = (brand === 'all' || cardBrand === brand);
+            
+            // Match Price Range
+            const matchPrice = (cardPrice >= minPrice && cardPrice <= maxPrice);
+
+            // Match Offer
+            const matchOffer = (!onlyOffers || isOffer);
+
+            // Match Search query
+            const matchSearch = (!query || cardName.includes(query) || cardDesc.includes(query));
+
+            if (matchCategory && matchGender && matchBrand && matchPrice && matchOffer && matchSearch) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Toggle No Results Message
+        if (visibleCount === 0) {
+            if (noResults) noResults.classList.remove('hidden');
+            if (productGrid) productGrid.classList.add('hidden');
+        } else {
+            if (noResults) noResults.classList.add('hidden');
+            if (productGrid) productGrid.classList.remove('hidden');
         }
     }
 
-    // Buscar en ofertas
-    let ofertas = document.querySelectorAll("#ofertas .card h3");
-    for (let o of ofertas) {
-        if (o.textContent.toLowerCase().includes(query)) {
-            document.getElementById("ofertas").scrollIntoView({ behavior: "smooth" });
-            o.scrollIntoView({ behavior: "smooth", block: "center" });
-           p.style.backgroundColor = "#b2f2bb"; // verde pastel
-           p.style.borderRadius = "8px";        // esquinas redondeadas
-           p.style.padding = "4px";             // un poco de espacio interno
+    // Connect Navbar Search Form to Catalog
+    const navSearchForm = document.getElementById('searchForm');
+    const navSearchInput = document.getElementById('searchInput');
 
-            setTimeout(() => o.style.backgroundColor = "transparent", 2000);
-            return;
-        }
+    if (navSearchForm && navSearchInput) {
+        navSearchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = navSearchInput.value.trim();
+            if (!query) return;
+
+            // Update catalog search field
+            if (searchInput) {
+                searchInput.value = query;
+            }
+            
+            // Scroll to catalog section
+            const catalogSec = document.getElementById('productos');
+            if (catalogSec) {
+                catalogSec.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Run filtering
+            filterProducts();
+        });
     }
-
-    // Si no encontró nada
-    alert("No se encontró ningún producto con ese nombre.");
 });
 </script>
 

@@ -15,12 +15,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // Obtener productos que no están en oferta junto con sus imágenes
-        $products = Product::with('images')->where('on_offer', false)->get();
-        // Obtener productos en oferta junto con sus imágenes
-        $offers = Product::with('images')->where('on_offer', true)->get();
+        // Obtener TODOS los productos (en oferta y normales) junto con imágenes y categoría para el catálogo
+        $products = Product::with(['images', 'category'])->get();
+        // Obtener productos en oferta junto con sus imágenes y categoría para el carrusel de ofertas
+        $offers = Product::with(['images', 'category'])->where('on_offer', true)->get();
+        // Obtener todas las categorías para los filtros
+        $categories = \App\Models\Category::all();
+        // Obtener marcas únicas que existen en la base de datos
+        $brands = Product::whereNotNull('brand')->where('brand', '!=', '')->distinct()->pluck('brand')->toArray();
 
-        return view('welcome', compact('products', 'offers'));
+        return view('welcome', compact('products', 'offers', 'categories', 'brands'));
     }
 
     /**
@@ -28,7 +32,8 @@ class ProductController extends Controller
      */
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $categories = \App\Models\Category::all();
+        return view('admin.dashboard', compact('categories'));
     }
 
     /**
@@ -37,7 +42,7 @@ class ProductController extends Controller
      */
     public function adminIndex()
     {
-        $products = Product::with('images')
+        $products = Product::with(['images', 'category'])
             ->where('seller_id', auth()->id()) // Filtrar por el vendedor actual
             ->paginate(10);
 
@@ -76,6 +81,10 @@ class ProductController extends Controller
             'images' => 'nullable|array|max:4',
             'images.*' => 'nullable|image|mimes:jpeg,jpg,png,gif,bmp,webp,svg,tiff,heic,heif|max:5120',
             'on_offer' => 'nullable|boolean',
+            'category_id' => 'required|exists:categories,id',
+            'brand' => 'required|string|max:255',
+            'gender' => 'required|string|in:Hombre,Mujer,Unisex',
+            'stock' => 'required|integer|min:0',
         ]);
 
         // Crear el registro de producto asociándolo con el vendedor autenticado
@@ -85,6 +94,10 @@ class ProductController extends Controller
             'price' => $request->price,
             'on_offer' => $request->has('on_offer'),
             'seller_id' => auth()->id(),
+            'category_id' => $request->category_id,
+            'brand' => $request->brand,
+            'gender' => $request->gender,
+            'stock' => $request->stock,
         ]);
 
         // Procesar y guardar imágenes si se han subido archivos
@@ -110,7 +123,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit', compact('product'));
+        $categories = \App\Models\Category::all();
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -124,6 +138,10 @@ class ProductController extends Controller
             'description' => 'required|string',
             'price' => 'required|numeric',
             'on_offer' => 'nullable|boolean',
+            'category_id' => 'required|exists:categories,id',
+            'brand' => 'required|string|max:255',
+            'gender' => 'required|string|in:Hombre,Mujer,Unisex',
+            'stock' => 'required|integer|min:0',
         ]);
 
         // Actualizar los datos del producto
@@ -132,6 +150,10 @@ class ProductController extends Controller
             'description' => $data['description'],
             'price' => $data['price'],
             'on_offer' => $request->input('on_offer'),
+            'category_id' => $data['category_id'],
+            'brand' => $data['brand'],
+            'gender' => $data['gender'],
+            'stock' => $data['stock'],
         ]);
 
         return redirect()->route('admin.products.index')->with('success', 'Producto actualizado correctamente');

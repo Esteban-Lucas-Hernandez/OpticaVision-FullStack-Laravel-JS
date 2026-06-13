@@ -62,10 +62,12 @@
         <div class="col-12">
             <h3 class="border-bottom pb-2" style="color: #2c3e50;">Detalles del producto</h3>
             <ul class="list-unstyled mt-3">
+                <li class="mb-2"><i class="fas fa-folder text-success me-2"></i> <strong>Categoría:</strong> {{ $product->category->name ?? 'Sin categoría' }}</li>
+                <li class="mb-2"><i class="fas fa-tag text-success me-2"></i> <strong>Marca:</strong> {{ $product->brand ?? 'Genérica' }}</li>
+                <li class="mb-2"><i class="fas fa-venus-mars text-success me-2"></i> <strong>Género:</strong> {{ $product->gender ?? 'Unisex' }}</li>
+                <li class="mb-2"><i class="fas fa-boxes text-success me-2"></i> <strong>Stock disponible:</strong> {{ $product->stock }} unidades</li>
                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i> <strong>Material del marco:</strong> Acetato premium resistente</li>
                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i> <strong>Protección UV:</strong> 100% UV400</li>
-                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> <strong>Diseño:</strong> Ergonómico, sin presión en las orejas</li>
-                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> <strong>Incluye:</strong> Funda semirrígida + Paño de limpieza</li>
             </ul>
         </div>
     </div>

@@ -10,18 +10,26 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-    'name',
-    'description',
-    'price',
-    'stock',
-    'on_offer',
-    'seller_id', // ✅ Coincide con la columna de la BD
-];
+        'name',
+        'description',
+        'price',
+        'stock',
+        'on_offer',
+        'seller_id',
+        'category_id',
+        'brand',
+        'gender',
+    ];
 
-public function seller()
-{
-    return $this->belongsTo(User::class, 'seller_id'); // ✅ Coincide con la columna
-}
+    public function seller()
+    {
+        return $this->belongsTo(User::class, 'seller_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     // 📷 Relación con imágenes
     public function images()
@@ -29,4 +37,3 @@ public function seller()
         return $this->hasMany(ProductImage::class);
     }
 }
-

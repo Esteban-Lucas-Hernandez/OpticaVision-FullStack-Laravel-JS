@@ -29,6 +29,42 @@
                     </div>
 
                     <div class="mb-4">
+                        <label for="category_id" class="block text-sm font-medium">Categoría</label>
+                        <select name="category_id" id="category_id" class="w-full border rounded p-2" required>
+                            <option value="">Seleccione una categoría</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="brand" class="block text-sm font-medium">Marca</label>
+                        <input type="text" name="brand" id="brand"
+                               value="{{ $product->brand }}"
+                               class="w-full border rounded p-2" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="gender" class="block text-sm font-medium">Género</label>
+                        <select name="gender" id="gender" class="w-full border rounded p-2" required>
+                            <option value="Unisex" {{ $product->gender == 'Unisex' ? 'selected' : '' }}>Unisex</option>
+                            <option value="Hombre" {{ $product->gender == 'Hombre' ? 'selected' : '' }}>Hombre</option>
+                            <option value="Mujer" {{ $product->gender == 'Mujer' ? 'selected' : '' }}>Mujer</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="stock" class="block text-sm font-medium">Stock</label>
+                        <input type="number" name="stock" id="stock"
+                               value="{{ $product->stock }}"
+                               min="0"
+                               class="w-full border rounded p-2" required>
+                    </div>
+
+                    <div class="mb-4">
                         <label for="description" class="block text-sm font-medium">Descripción</label>
                         <textarea name="description" id="description"
                                   class="w-full border rounded p-2"

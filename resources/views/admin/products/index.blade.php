@@ -54,7 +54,10 @@
                     <thead>
                         <tr>
                             <th class="px-4 py-2">Nombre</th>
-                            <th class="px-4 py-2">Descripción</th>
+                            <th class="px-4 py-2">Categoría</th>
+                            <th class="px-4 py-2">Marca</th>
+                            <th class="px-4 py-2">Género</th>
+                            <th class="px-4 py-2">Stock</th>
                             <th class="px-4 py-2">Precio</th>
                             <th class="px-4 py-2">Oferta</th>
                             <th class="px-4 py-2">Acciones</th>
@@ -64,7 +67,10 @@
                         @forelse($products as $product)
                             <tr class="divide-y divide-gray-200 dark:divide-gray-700">
                                 <td class="px-4 py-2">{{ $product->name }}</td>
-                                <td class="px-4 py-2">{{ $product->description }}</td>
+                                <td class="px-4 py-2">{{ $product->category->name ?? 'N/A' }}</td>
+                                <td class="px-4 py-2">{{ $product->brand ?? 'N/A' }}</td>
+                                <td class="px-4 py-2">{{ $product->gender ?? 'N/A' }}</td>
+                                <td class="px-4 py-2">{{ $product->stock }}</td>
                                 <td class="px-4 py-2">${{ number_format($product->price, 2) }}</td>
                                 <td class="px-4 py-2">{{ $product->on_offer ? 'Sí' : 'No' }}</td>
                                 <td class="px-4 py-2">
@@ -88,7 +94,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="px-4 py-2 text-center text-gray-500">No hay productos aún</td>
+                                <td colspan="8" class="px-4 py-2 text-center text-gray-500">No hay productos aún</td>
                             </tr>
                         @endforelse
                     </tbody>

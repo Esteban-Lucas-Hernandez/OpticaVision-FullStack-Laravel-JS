@@ -65,7 +65,26 @@
                     <textarea name="description" placeholder="Descripción" required class="mb-2 w-full p-2 border rounded"></textarea><br>
                     <input type="number" step="0.01" name="price" placeholder="Precio" required class="mb-2 w-full p-2 border rounded"><br>
 
-                    <label style="color: white">Imágenes (máx. 4):</label>
+                    <label style="color: white" class="block mb-1 font-medium text-sm">Categoría:</label>
+                    <select name="category_id" required class="mb-2 w-full p-2 border rounded">
+                        <option value="">Seleccione una categoría</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select><br>
+
+                    <input type="text" name="brand" placeholder="Marca (ej. Ray-Ban, Arnette)" required class="mb-2 w-full p-2 border rounded"><br>
+
+                    <label style="color: white" class="block mb-1 font-medium text-sm">Género:</label>
+                    <select name="gender" required class="mb-2 w-full p-2 border rounded">
+                        <option value="Unisex">Unisex</option>
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                    </select><br>
+
+                    <input type="number" name="stock" placeholder="Stock disponible" value="10" min="0" required class="mb-2 w-full p-2 border rounded"><br>
+
+                    <label style="color: white" class="block mb-1 font-medium text-sm">Imágenes (máx. 4):</label>
                     <input style="color: white"
                         type="file" 
                         name="images[]" 

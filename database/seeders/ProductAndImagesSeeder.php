@@ -9,7 +9,40 @@ class ProductAndImagesSeeder extends Seeder
 {
     public function run()
     {
-        // Insertar productos
+        // Limpiar tablas para evitar errores de claves duplicadas si se corre múltiples veces
+        DB::statement('PRAGMA foreign_keys = OFF;');
+        DB::table('categories')->truncate();
+        DB::table('products')->truncate();
+        DB::table('product_images')->truncate();
+        DB::statement('PRAGMA foreign_keys = ON;');
+
+        // Insertar categorías
+        $solId = DB::table('categories')->insertGetId([
+            'name' => 'Gafas de Sol',
+            'slug' => 'gafas-de-sol',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $graduadasId = DB::table('categories')->insertGetId([
+            'name' => 'Gafas Graduadas',
+            'slug' => 'gafas-graduadas',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $contactoId = DB::table('categories')->insertGetId([
+            'name' => 'Lentes de Contacto',
+            'slug' => 'lentes-de-contacto',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $accesoriosId = DB::table('categories')->insertGetId([
+            'name' => 'Accesorios',
+            'slug' => 'accesorios',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        // Insertar productos con categorías y filtros
         DB::table('products')->insert([
             [
                 'id' => 10,
@@ -18,6 +51,12 @@ class ProductAndImagesSeeder extends Seeder
                 'price' => 15000.00,
                 'seller_id' => 2,
                 'on_offer' => 0,
+                'category_id' => $solId,
+                'brand' => 'Arnette',
+                'gender' => 'Hombre',
+                'stock' => 15,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 12,
@@ -26,6 +65,12 @@ class ProductAndImagesSeeder extends Seeder
                 'price' => 30000.00,
                 'seller_id' => 2,
                 'on_offer' => 1,
+                'category_id' => $solId,
+                'brand' => 'Ray-Ban',
+                'gender' => 'Unisex',
+                'stock' => 12,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 14,
@@ -34,6 +79,12 @@ class ProductAndImagesSeeder extends Seeder
                 'price' => 40000.00,
                 'seller_id' => 3,
                 'on_offer' => 1,
+                'category_id' => $graduadasId,
+                'brand' => 'Oakley',
+                'gender' => 'Unisex',
+                'stock' => 8,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 15,
@@ -42,6 +93,12 @@ class ProductAndImagesSeeder extends Seeder
                 'price' => 40000.00,
                 'seller_id' => 3,
                 'on_offer' => 0,
+                'category_id' => $solId,
+                'brand' => 'Carrera',
+                'gender' => 'Hombre',
+                'stock' => 20,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 16,
@@ -50,6 +107,12 @@ class ProductAndImagesSeeder extends Seeder
                 'price' => 15000.00,
                 'seller_id' => 2,
                 'on_offer' => 0,
+                'category_id' => $graduadasId,
+                'brand' => 'Arnette',
+                'gender' => 'Unisex',
+                'stock' => 10,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 17,
@@ -58,6 +121,12 @@ class ProductAndImagesSeeder extends Seeder
                 'price' => 80000.00,
                 'seller_id' => 2,
                 'on_offer' => 1,
+                'category_id' => $solId,
+                'brand' => 'Vogue',
+                'gender' => 'Mujer',
+                'stock' => 6,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 18,
@@ -66,6 +135,12 @@ class ProductAndImagesSeeder extends Seeder
                 'price' => 20000.00,
                 'seller_id' => 2,
                 'on_offer' => 1,
+                'category_id' => $graduadasId,
+                'brand' => 'Ray-Ban',
+                'gender' => 'Unisex',
+                'stock' => 14,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 19,
@@ -74,6 +149,12 @@ class ProductAndImagesSeeder extends Seeder
                 'price' => 50000.00,
                 'seller_id' => 3,
                 'on_offer' => 0,
+                'category_id' => $graduadasId,
+                'brand' => 'Prada',
+                'gender' => 'Mujer',
+                'stock' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 20,
@@ -82,6 +163,12 @@ class ProductAndImagesSeeder extends Seeder
                 'price' => 100000.00,
                 'seller_id' => 3,
                 'on_offer' => 0,
+                'category_id' => $graduadasId,
+                'brand' => 'Oakley',
+                'gender' => 'Unisex',
+                'stock' => 12,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
 
