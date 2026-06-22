@@ -81,6 +81,11 @@
                                 </div>
                             </div>
                             <div class="user-dropdown-divider"></div>
+                            @if(Auth::user()->rol === 'admin' || Auth::user()->rol === 'vendedor')
+                                <a href="{{ Auth::user()->rol === 'admin' ? route('admin.usuarios') : route('admin.dashboard') }}" class="ud-admin-btn">
+                                    <i class="fas fa-cog"></i> Panel de {{ Auth::user()->rol === 'admin' ? 'administraci\u00f3n' : 'vendedor' }}
+                                </a>
+                            @endif
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="ud-logout-btn">

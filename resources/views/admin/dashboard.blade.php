@@ -1,120 +1,93 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-<style>
-    select, textarea, input {
-    background-color: #374151 !important; /* Forzar el fondo */
-    color: white !important;
-    border: 1px solid #4B5563 !important;
-}
-
-</style>
-
-<body class="bg-gray-100 dark:bg-gray-900">
-    <!-- Navbar común para todos los archivos -->
-
-
-    <!-- Archivo: crear.html -->
-    <x-app-layout>
-        <nav class="bg-white dark:bg-gray-800 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-            <!-- Dashboard a la izquierda -->
-            <div class="flex-shrink-0">
-                <h1 class="text-xl font-bold text-gray-800 dark:text-white" style="color: white">Vendedor</h1>
-            </div>
-
-            <!-- Enlaces a la derecha -->
-            <div class="flex space-x-6">
-                
-                    <a href="/" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center transition-colors">
-                    <i class="fas fa-eye mr-2"></i> Vista Pública
-                </a>
-                <a href="{{ route('admin.dashboard') }}" 
-                   class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 border-b-2 border-transparent hover:border-blue-600">
-                    <i class="fas fa-plus-circle mr-1"></i> Crear Producto
-                </a>
-                <a href="{{ route('seller.purchases') }}" 
-                   class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 border-b-2 border-transparent hover:border-blue-600">
-                    <i class="fas fa-history mr-1"></i> Historial de Compras
-                </a>
-                <a href="{{ route('admin.products.index') }}" 
-                   class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 border-b-2 border-transparent hover:border-blue-600">
-                    <i class="fas fa-cogs mr-1"></i> Gestionar Productos
-                </a>
-            </div>
+<x-admin-layout title="Crear producto">
+    <x-slot name="header">
+        <div>
+            <h1 class="page-title">Crear producto</h1>
+            <p class="page-subtitle">Agrega un nuevo artículo a tu catálogo</p>
         </div>
-    </div>
-</nav>
+    </x-slot>
 
+    <div class="admin-card p-6 sm:p-8">
+        <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
+            @csrf
 
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="sm:col-span-2">
+                    <label class="admin-label">Nombre del producto</label>
+                    <input type="text" name="name" placeholder="Ej. Ray-Ban Aviator" required class="admin-input">
+                </div>
 
-        <div class="py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {{-- Formulario de productos --}}
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 mb-8">
-                <h2 class="text-lg font-semibold mb-4" style="color: white">Agregar Producto</h2>
-                <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input type="text" name="name" placeholder="Nombre" required class="mb-2 w-full p-2 border rounded"><br>
-                    <textarea name="description" placeholder="Descripción" required class="mb-2 w-full p-2 border rounded"></textarea><br>
-                    <input type="number" step="0.01" name="price" placeholder="Precio" required class="mb-2 w-full p-2 border rounded"><br>
+                <div class="sm:col-span-2">
+                    <label class="admin-label">Descripción</label>
+                    <textarea name="description" placeholder="Describe el producto..." required rows="3" class="admin-input"></textarea>
+                </div>
 
-                    <label style="color: white" class="block mb-1 font-medium text-sm">Categoría:</label>
-                    <select name="category_id" required class="mb-2 w-full p-2 border rounded">
+                <div>
+                    <label class="admin-label">Precio ($)</label>
+                    <input type="number" step="0.01" name="price" placeholder="0.00" required class="admin-input">
+                </div>
+
+                <div>
+                    <label class="admin-label">Stock disponible</label>
+                    <input type="number" name="stock" value="10" min="0" required class="admin-input">
+                </div>
+
+                <div>
+                    <label class="admin-label">Categoría</label>
+                    <select name="category_id" required class="admin-input">
                         <option value="">Seleccione una categoría</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
-                    </select><br>
+                    </select>
+                </div>
 
-                    <input type="text" name="brand" placeholder="Marca (ej. Ray-Ban, Arnette)" required class="mb-2 w-full p-2 border rounded"><br>
+                <div>
+                    <label class="admin-label">Marca</label>
+                    <input type="text" name="brand" placeholder="Ej. Ray-Ban, Arnette" required class="admin-input">
+                </div>
 
-                    <label style="color: white" class="block mb-1 font-medium text-sm">Género:</label>
-                    <select name="gender" required class="mb-2 w-full p-2 border rounded">
+                <div>
+                    <label class="admin-label">Género</label>
+                    <select name="gender" required class="admin-input">
                         <option value="Unisex">Unisex</option>
                         <option value="Hombre">Hombre</option>
                         <option value="Mujer">Mujer</option>
-                    </select><br>
+                    </select>
+                </div>
 
-                    <input type="number" name="stock" placeholder="Stock disponible" value="10" min="0" required class="mb-2 w-full p-2 border rounded"><br>
-
-                    <label style="color: white" class="block mb-1 font-medium text-sm">Imágenes (máx. 4):</label>
-                    <input style="color: white"
-                        type="file" 
-                        name="images[]" 
-                        multiple 
-                        accept="image/*" 
-                        class="mb-4"
-                        onchange="validateFiles(this)"
-                    ><br>
-                    <label style="color: white">
-                        <input type="checkbox" name="on_offer" value="1"> Oferta
-                    </label><br><br>
-
-                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Guardar Producto</button>
-                </form>
+                <div>
+                    <label class="admin-label">Imágenes (máx. 4)</label>
+                    <input type="file" name="images[]" multiple accept="image/*"
+                           class="admin-input file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-brand file:text-white hover:file:bg-brand-dark"
+                           onchange="validateFiles(this)">
+                </div>
             </div>
-        </div>
-        
-        <script>
-            function validateFiles(input) {
-                if (input.files.length > 4) {
-                    alert("Solo puedes subir un máximo de 4 imágenes.");
-                    input.value = ""; // Limpia el campo
-                }
+
+            <div class="flex items-center gap-2 pt-2">
+                <input type="checkbox" name="on_offer" value="1" id="on_offer"
+                       class="rounded border-gray-300 text-brand focus:ring-brand">
+                <label for="on_offer" class="text-sm text-gray-700">Marcar como oferta</label>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100">
+                <button type="submit" class="admin-btn-primary">
+                    <i class="fas fa-save"></i> Guardar producto
+                </button>
+                <a href="{{ route('admin.products.index') }}" class="admin-btn-secondary text-center">
+                    Ver mis productos
+                </a>
+            </div>
+        </form>
+    </div>
+
+    @push('scripts')
+    <script>
+        function validateFiles(input) {
+            if (input.files.length > 4) {
+                alert('Solo puedes subir un máximo de 4 imágenes.');
+                input.value = '';
             }
-        </script>
-    </x-app-layout>
-
-    <!-- Archivo: historial.html -->
-    
-
-    <!-- Archivo: gestionar.html -->
-</body>
-</html>
+        }
+    </script>
+    @endpush
+</x-admin-layout>

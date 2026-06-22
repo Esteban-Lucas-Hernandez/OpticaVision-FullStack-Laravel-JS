@@ -367,6 +367,29 @@ body {
     background: #fef2f2;
 }
 
+.ud-admin-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #059669;
+    border: none;
+    padding: 0.7rem 0.75rem;
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-family: var(--font-display);
+    text-decoration: none;
+    margin-bottom: 0.3rem;
+}
+
+.ud-admin-btn:hover {
+    background: #047857;
+}
+
 /* Botones CTA */
 .nav-btn-ghost {
     font-family: var(--font-display);
